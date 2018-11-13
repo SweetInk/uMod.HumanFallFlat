@@ -1,0 +1,18 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27004.2008
+MinimumVisualStudioVersion = 15.0
+Project("{54CC9F1C-FE71-438C-9539-7773080D47D7}") = "uMod.HumanFallFlat", "src\uMod.HumanFallFlat.csproj", "{AADE3F73-20D3-458B-9D5E-7940B63FAD89}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AADE3F73-20D3-458B-9D5E-7940B63FAD89}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AADE3F73-20D3-458B-9D5E-7940B63FAD89}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AADE3F73-20D3-458B-9D5E-7940B63FAD89}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AADE3F73-20D3-458B-9D5E-7940B63FAD89}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

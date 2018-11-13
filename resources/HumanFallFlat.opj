@@ -1,0 +1,1204 @@
+{
+  "Name": "Human Fall Flat",
+  "TargetDirectory": "D:\\Servers\\HumanFallFlat\\Human_Data\\Managed",
+  "Manifests": [
+    {
+      "AssemblyName": "Assembly-CSharp.dll",
+      "Hooks": [
+        {
+          "Type": "Simple",
+          "Hook": {
+            "InjectionIndex": 0,
+            "ReturnBehavior": 0,
+            "ArgumentBehavior": 0,
+            "ArgumentString": null,
+            "HookTypeName": "Simple",
+            "Name": "SpawnPlayer",
+            "HookName": "OnSpawnPlayer",
+            "AssemblyName": "Assembly-CSharp.dll",
+            "TypeName": "Multiplayer.NetPlayer",
+            "Flagged": true,
+            "Signature": {
+              "Exposure": 2,
+              "Name": "SpawnPlayer",
+              "ReturnType": "Multiplayer.NetPlayer",
+              "Parameters": [
+                "System.UInt32",
+                "Multiplayer.NetHost",
+                "System.Boolean",
+                "System.String",
+                "System.UInt32",
+                "System.Byte[]"
+              ]
+            },
+            "MSILHash": "lEQUjTU6PRKBu8Y6ZxcJG+QO7ikfIRfRvUx3B+1LwNo=",
+            "BaseHookName": null,
+            "HookCategory": null
+          }
+        },
+        {
+          "Type": "Simple",
+          "Hook": {
+            "InjectionIndex": 17,
+            "ReturnBehavior": 0,
+            "ArgumentBehavior": 4,
+            "ArgumentString": "l0",
+            "HookTypeName": "Simple",
+            "Name": "IOnPlayerConnected [internal]",
+            "HookName": "IOnPlayerConnected",
+            "AssemblyName": "Assembly-CSharp.dll",
+            "TypeName": "Multiplayer.NetGame",
+            "Flagged": false,
+            "Signature": {
+              "Exposure": 0,
+              "Name": "AddServerPlayer",
+              "ReturnType": "Multiplayer.NetPlayer",
+              "Parameters": [
+                "Multiplayer.NetHost",
+                "System.Boolean",
+                "System.String",
+                "System.UInt32",
+                "System.Byte[]"
+              ]
+            },
+            "MSILHash": "h2QE2y8QYTMOJfpBoHdE7qP8ze7X5stTU7dhekzBOuI=",
+            "BaseHookName": null,
+            "HookCategory": "Player"
+          }
+        },
+        {
+          "Type": "Simple",
+          "Hook": {
+            "InjectionIndex": 9,
+            "ReturnBehavior": 1,
+            "ArgumentBehavior": 4,
+            "ArgumentString": "a0, l0, l2",
+            "HookTypeName": "Simple",
+            "Name": "IOnPlayerChat [internal]",
+            "HookName": "IOnPlayerChat",
+            "AssemblyName": "Assembly-CSharp.dll",
+            "TypeName": "Multiplayer.NetGame",
+            "Flagged": false,
+            "Signature": {
+              "Exposure": 0,
+              "Name": "OnReceiveChatServer",
+              "ReturnType": "System.Void",
+              "Parameters": [
+                "Multiplayer.NetHost",
+                "Multiplayer.NetStream"
+              ]
+            },
+            "MSILHash": "DrdZRuZFsvCkQszkYEHOU4RsuCbtthUnoaWzm3DSimc=",
+            "BaseHookName": null,
+            "HookCategory": "Player"
+          }
+        },
+        {
+          "Type": "Simple",
+          "Hook": {
+            "InjectionIndex": 0,
+            "ReturnBehavior": 0,
+            "ArgumentBehavior": 0,
+            "ArgumentString": null,
+            "HookTypeName": "Simple",
+            "Name": "OnRequestSkinServer",
+            "HookName": "OnRequestSkinServer",
+            "AssemblyName": "Assembly-CSharp.dll",
+            "TypeName": "Multiplayer.NetGame",
+            "Flagged": true,
+            "Signature": {
+              "Exposure": 0,
+              "Name": "OnRequestSkinServer",
+              "ReturnType": "System.Void",
+              "Parameters": [
+                "Multiplayer.NetHost",
+                "Multiplayer.NetStream"
+              ]
+            },
+            "MSILHash": "beN2chOAKR9wS7eRemsuopsdoPZFr2HYaoLYtrdcV1o=",
+            "BaseHookName": null,
+            "HookCategory": null
+          }
+        },
+        {
+          "Type": "Simple",
+          "Hook": {
+            "InjectionIndex": 0,
+            "ReturnBehavior": 0,
+            "ArgumentBehavior": 0,
+            "ArgumentString": null,
+            "HookTypeName": "Simple",
+            "Name": "OnRequestAddPlayerServer",
+            "HookName": "OnRequestAddPlayerServer",
+            "AssemblyName": "Assembly-CSharp.dll",
+            "TypeName": "Multiplayer.NetGame",
+            "Flagged": true,
+            "Signature": {
+              "Exposure": 0,
+              "Name": "OnRequestAddPlayerServer",
+              "ReturnType": "System.Void",
+              "Parameters": [
+                "Multiplayer.NetHost",
+                "Multiplayer.NetStream"
+              ]
+            },
+            "MSILHash": "T+f0jH4BqDy8/HrKDx7Mej0Bro1cQ/x0QfENOoCoPkw=",
+            "BaseHookName": null,
+            "HookCategory": null
+          }
+        },
+        {
+          "Type": "Modify",
+          "Hook": {
+            "InjectionIndex": 0,
+            "RemoveCount": 0,
+            "Instructions": [
+              {
+                "OpCode": "ret",
+                "OpType": "None",
+                "Operand": null
+              }
+            ],
+            "HookTypeName": "Modify",
+            "Name": "DisableCursorLock [patch]",
+            "HookName": "DisableCursorLock",
+            "AssemblyName": "Assembly-CSharp.dll",
+            "TypeName": "MenuSystem",
+            "Flagged": false,
+            "Signature": {
+              "Exposure": 0,
+              "Name": "BindCursor",
+              "ReturnType": "System.Void",
+              "Parameters": [
+                "System.Boolean"
+              ]
+            },
+            "MSILHash": "TjskwUoZgSX85ooX4C6dqeTbJvYgjwtmZjlGgBCdD7c=",
+            "BaseHookName": null,
+            "HookCategory": "_Patches"
+          }
+        },
+        {
+          "Type": "Modify",
+          "Hook": {
+            "InjectionIndex": 0,
+            "RemoveCount": 0,
+            "Instructions": [
+              {
+                "OpCode": "ret",
+                "OpType": "None",
+                "Operand": null
+              }
+            ],
+            "HookTypeName": "Modify",
+            "Name": "DisableInputReading [patch]",
+            "HookName": "DisableInputReading",
+            "AssemblyName": "Assembly-CSharp.dll",
+            "TypeName": "HumanControls",
+            "Flagged": false,
+            "Signature": {
+              "Exposure": 2,
+              "Name": "ReadInput",
+              "ReturnType": "System.Void",
+              "Parameters": [
+                "System.Single&",
+                "System.Single&",
+                "System.Single&",
+                "System.Single&",
+                "System.Single&",
+                "System.Single&",
+                "System.Boolean&",
+                "System.Boolean&"
+              ]
+            },
+            "MSILHash": "7CfcJRIOGYeVfncjjcOvYZw9+J2GSz/203tBt1dAJk0=",
+            "BaseHookName": null,
+            "HookCategory": "_Patches"
+          }
+        },
+        {
+          "Type": "Modify",
+          "Hook": {
+            "InjectionIndex": 0,
+            "RemoveCount": 0,
+            "Instructions": [
+              {
+                "OpCode": "ret",
+                "OpType": "None",
+                "Operand": null
+              }
+            ],
+            "HookTypeName": "Modify",
+            "Name": "DisableCloudRender [patch]",
+            "HookName": "DisableCloudRender",
+            "AssemblyName": "Assembly-CSharp.dll",
+            "TypeName": "CloudRender",
+            "Flagged": false,
+            "Signature": {
+              "Exposure": 0,
+              "Name": "OnEnable",
+              "ReturnType": "System.Void",
+              "Parameters": []
+            },
+            "MSILHash": "6CsxGortIolp3ViZH/5oJlBgjygE7vAq5cwMoaVxOFg=",
+            "BaseHookName": null,
+            "HookCategory": "_Patches"
+          }
+        },
+        {
+          "Type": "Modify",
+          "Hook": {
+            "InjectionIndex": 0,
+            "RemoveCount": 0,
+            "Instructions": [
+              {
+                "OpCode": "ret",
+                "OpType": "None",
+                "Operand": null
+              }
+            ],
+            "HookTypeName": "Modify",
+            "Name": "DisableOptionsLoading [patch]",
+            "HookName": "DisableOptionsLoading",
+            "AssemblyName": "Assembly-CSharp.dll",
+            "TypeName": "Options",
+            "Flagged": false,
+            "Signature": {
+              "Exposure": 2,
+              "Name": "Load",
+              "ReturnType": "System.Void",
+              "Parameters": []
+            },
+            "MSILHash": "IhcLLIm3FoQoDrrab3P7AnAlnaLsTqNed/fEMd0Whro=",
+            "BaseHookName": null,
+            "HookCategory": "_Patches"
+          }
+        },
+        {
+          "Type": "Modify",
+          "Hook": {
+            "InjectionIndex": 0,
+            "RemoveCount": 0,
+            "Instructions": [
+              {
+                "OpCode": "ldc_i4_1",
+                "OpType": "None",
+                "Operand": null
+              },
+              {
+                "OpCode": "ret",
+                "OpType": "None",
+                "Operand": null
+              }
+            ],
+            "HookTypeName": "Modify",
+            "Name": "DisableJoinHeldOnDevice [patch]",
+            "HookName": "DisableJoinHeldOnDevice",
+            "AssemblyName": "Assembly-CSharp.dll",
+            "TypeName": "PlayerManager",
+            "Flagged": false,
+            "Signature": {
+              "Exposure": 0,
+              "Name": "JoinHeldOnDevice",
+              "ReturnType": "System.Boolean",
+              "Parameters": [
+                "InControl.InputDevice"
+              ]
+            },
+            "MSILHash": "X1GGwn5MgW4408sDwjANw5hfj49fAnbGPIz81C2P5Zg=",
+            "BaseHookName": null,
+            "HookCategory": "_Patches"
+          }
+        },
+        {
+          "Type": "Modify",
+          "Hook": {
+            "InjectionIndex": 2,
+            "RemoveCount": 4,
+            "Instructions": [],
+            "HookTypeName": "Modify",
+            "Name": "RemoveShellLogEvent [patch]",
+            "HookName": "RemoveShellLogEvent",
+            "AssemblyName": "Assembly-CSharp.dll",
+            "TypeName": "Shell",
+            "Flagged": false,
+            "Signature": {
+              "Exposure": 0,
+              "Name": "Awake",
+              "ReturnType": "System.Void",
+              "Parameters": []
+            },
+            "MSILHash": "btAdMDdL7MpSn7OwRmjg5DSDxJnW1A5Lzwa4cUePkAg=",
+            "BaseHookName": null,
+            "HookCategory": "_Patches"
+          }
+        },
+        {
+          "Type": "Modify",
+          "Hook": {
+            "InjectionIndex": 0,
+            "RemoveCount": 61,
+            "Instructions": [
+              {
+                "OpCode": "ldarg_0",
+                "OpType": "None",
+                "Operand": null
+              },
+              {
+                "OpCode": "ldstr",
+                "OpType": "String",
+                "Operand": "<.*?>"
+              },
+              {
+                "OpCode": "ldstr",
+                "OpType": "String",
+                "Operand": ""
+              },
+              {
+                "OpCode": "call",
+                "OpType": "Method",
+                "Operand": "System|System.Text.RegularExpressions.Regex|Replace(System.String, System.String, System.String)"
+              },
+              {
+                "OpCode": "call",
+                "OpType": "Method",
+                "Operand": "UnityEngine.CoreModule|UnityEngine.Debug|Log"
+              }
+            ],
+            "HookTypeName": "Modify",
+            "Name": "SendChatPrintToDebug [patch]",
+            "HookName": "SendChatPrintToDebug",
+            "AssemblyName": "Assembly-CSharp.dll",
+            "TypeName": "Multiplayer.NetChat",
+            "Flagged": false,
+            "Signature": {
+              "Exposure": 2,
+              "Name": "Print",
+              "ReturnType": "System.Void",
+              "Parameters": [
+                "System.String"
+              ]
+            },
+            "MSILHash": "jZJyPSTdwkSJhc9dytArrTralqGeyGnv4I/9ozCjmtc=",
+            "BaseHookName": null,
+            "HookCategory": "_Patches"
+          }
+        },
+        {
+          "Type": "Simple",
+          "Hook": {
+            "InjectionIndex": 0,
+            "ReturnBehavior": 0,
+            "ArgumentBehavior": 0,
+            "ArgumentString": null,
+            "HookTypeName": "Simple",
+            "Name": "OnServerShutdown",
+            "HookName": "OnServerShutdown",
+            "AssemblyName": "Assembly-CSharp.dll",
+            "TypeName": "Multiplayer.NetGame",
+            "Flagged": false,
+            "Signature": {
+              "Exposure": 2,
+              "Name": "StopServer",
+              "ReturnType": "System.Void",
+              "Parameters": []
+            },
+            "MSILHash": "60fE4NPHPT5Gt2NN3LhfJGpaJkeotYtYomM5NpSwC+c=",
+            "BaseHookName": null,
+            "HookCategory": "Server"
+          }
+        },
+        {
+          "Type": "Simple",
+          "Hook": {
+            "InjectionIndex": 33,
+            "ReturnBehavior": 0,
+            "ArgumentBehavior": 0,
+            "ArgumentString": null,
+            "HookTypeName": "Simple",
+            "Name": "IOnServerInitialized [internal]",
+            "HookName": "IOnServerInitialized",
+            "AssemblyName": "Assembly-CSharp.dll",
+            "TypeName": "Multiplayer.NetTransportSteam",
+            "Flagged": false,
+            "Signature": {
+              "Exposure": 0,
+              "Name": "OnLobbyCreated",
+              "ReturnType": "System.Void",
+              "Parameters": [
+                "Steamworks.LobbyCreated_t"
+              ]
+            },
+            "MSILHash": "uaL2BUH06+GT8xdMTNjEXvZ+E1Nt9h3uNJLg2wpqCag=",
+            "BaseHookName": null,
+            "HookCategory": "Server"
+          }
+        },
+        {
+          "Type": "InitMod",
+          "Hook": {
+            "InjectionIndex": 0,
+            "HookTypeName": "Initialize uMod",
+            "Name": "InitMod [internal]",
+            "HookName": "InitMod",
+            "AssemblyName": "Assembly-CSharp.dll",
+            "TypeName": "Multiplayer.App",
+            "Flagged": false,
+            "Signature": {
+              "Exposure": 2,
+              "Name": "BeginStartup",
+              "ReturnType": "System.Void",
+              "Parameters": []
+            },
+            "MSILHash": "blfVGrYpx3/m82VBXm90MvZEyCfUISR4R8kKYyhVqs8=",
+            "BaseHookName": null,
+            "HookCategory": "Server"
+          }
+        },
+        {
+          "Type": "Simple",
+          "Hook": {
+            "InjectionIndex": 1,
+            "ReturnBehavior": 0,
+            "ArgumentBehavior": 0,
+            "ArgumentString": null,
+            "HookTypeName": "Simple",
+            "Name": "InitLogging [internal]",
+            "HookName": "InitLogging",
+            "AssemblyName": "Assembly-CSharp.dll",
+            "TypeName": "Multiplayer.App",
+            "Flagged": false,
+            "Signature": {
+              "Exposure": 2,
+              "Name": "BeginStartup",
+              "ReturnType": "System.Void",
+              "Parameters": []
+            },
+            "MSILHash": "blfVGrYpx3/m82VBXm90MvZEyCfUISR4R8kKYyhVqs8=",
+            "BaseHookName": "InitMod [internal]",
+            "HookCategory": "Server"
+          }
+        },
+        {
+          "Type": "Simple",
+          "Hook": {
+            "InjectionIndex": 0,
+            "ReturnBehavior": 0,
+            "ArgumentBehavior": 0,
+            "ArgumentString": null,
+            "HookTypeName": "Simple",
+            "Name": "OnConnect",
+            "HookName": "OnConnect",
+            "AssemblyName": "Assembly-CSharp.dll",
+            "TypeName": "Multiplayer.NetGame",
+            "Flagged": true,
+            "Signature": {
+              "Exposure": 2,
+              "Name": "OnConnect",
+              "ReturnType": "System.Void",
+              "Parameters": [
+                "System.Object"
+              ]
+            },
+            "MSILHash": "2gGMEmva1YI65BwzZLf0jPl2bYwh+J8JtFHKqM2Alsc=",
+            "BaseHookName": null,
+            "HookCategory": null
+          }
+        },
+        {
+          "Type": "Simple",
+          "Hook": {
+            "InjectionIndex": 8,
+            "ReturnBehavior": 0,
+            "ArgumentBehavior": 4,
+            "ArgumentString": "l0",
+            "HookTypeName": "Simple",
+            "Name": "IOnPlayerDisconnected [internal]",
+            "HookName": "IOnPlayerDisconnected",
+            "AssemblyName": "Assembly-CSharp.dll",
+            "TypeName": "Multiplayer.NetGame",
+            "Flagged": false,
+            "Signature": {
+              "Exposure": 2,
+              "Name": "OnDisconnect",
+              "ReturnType": "System.Void",
+              "Parameters": [
+                "System.Object"
+              ]
+            },
+            "MSILHash": "NMX+6F4O/rZUXzBBGn1A7G+Fy3e7YLrd64ujrYiFDuM=",
+            "BaseHookName": null,
+            "HookCategory": "Player"
+          }
+        },
+        {
+          "Type": "Simple",
+          "Hook": {
+            "InjectionIndex": 0,
+            "ReturnBehavior": 0,
+            "ArgumentBehavior": 0,
+            "ArgumentString": null,
+            "HookTypeName": "Simple",
+            "Name": "OnServerReceive",
+            "HookName": "OnServerReceive",
+            "AssemblyName": "Assembly-CSharp.dll",
+            "TypeName": "Multiplayer.NetGame",
+            "Flagged": true,
+            "Signature": {
+              "Exposure": 2,
+              "Name": "OnServerReceive",
+              "ReturnType": "System.Void",
+              "Parameters": [
+                "Multiplayer.NetHost",
+                "Multiplayer.NetStream"
+              ]
+            },
+            "MSILHash": "POAJRLVtf14vlv4zaCvybYSfIi8zUJ+191002d34V9E=",
+            "BaseHookName": null,
+            "HookCategory": null
+          }
+        },
+        {
+          "Type": "Modify",
+          "Hook": {
+            "InjectionIndex": 0,
+            "RemoveCount": 2,
+            "Instructions": [
+              {
+                "OpCode": "ldstr",
+                "OpType": "String",
+                "Operand": ""
+              }
+            ],
+            "HookTypeName": "Modify",
+            "Name": "UnsetServerChatPrefix [patch]",
+            "HookName": "UnsetServerChatPrefix",
+            "AssemblyName": "Assembly-CSharp.dll",
+            "TypeName": "Multiplayer.NetGame",
+            "Flagged": false,
+            "Signature": {
+              "Exposure": 2,
+              "Name": "SendChatMessage",
+              "ReturnType": "System.Void",
+              "Parameters": [
+                "System.String"
+              ]
+            },
+            "MSILHash": "bnLzUAYSyZvOX5rJPtBubbJDjt1GW93IbnrFPNdY+D8=",
+            "BaseHookName": null,
+            "HookCategory": "_Patches"
+          }
+        },
+        {
+          "Type": "Modify",
+          "Hook": {
+            "InjectionIndex": 17,
+            "RemoveCount": 0,
+            "Instructions": [
+              {
+                "OpCode": "ldsfld",
+                "OpType": "Field",
+                "Operand": "Assembly-CSharp|GroundManager|all"
+              },
+              {
+                "OpCode": "ldloc_2",
+                "OpType": "None",
+                "Operand": null
+              },
+              {
+                "OpCode": "callvirt",
+                "OpType": "Method",
+                "Operand": "mscorlib|System.Collections.Generic.List`1[Assembly-CSharp|GroundManager]|get_Item"
+              },
+              {
+                "OpCode": "ldnull",
+                "OpType": "None",
+                "Operand": null
+              },
+              {
+                "OpCode": "call",
+                "OpType": "Method",
+                "Operand": "UnityEngine.CoreModule|UnityEngine.Object|op_Inequality"
+              },
+              {
+                "OpCode": "brfalse_s",
+                "OpType": "Instruction",
+                "Operand": 53
+              },
+              {
+                "OpCode": "ldsfld",
+                "OpType": "Field",
+                "Operand": "Assembly-CSharp|GroundManager|all"
+              },
+              {
+                "OpCode": "ldloc_2",
+                "OpType": "None",
+                "Operand": null
+              },
+              {
+                "OpCode": "callvirt",
+                "OpType": "Method",
+                "Operand": "mscorlib|System.Collections.Generic.List`1[Assembly-CSharp|GroundManager]|get_Item"
+              },
+              {
+                "OpCode": "ldfld",
+                "OpType": "Field",
+                "Operand": "Assembly-CSharp|GroundManager|groundObjects"
+              },
+              {
+                "OpCode": "brfalse_s",
+                "OpType": "Instruction",
+                "Operand": 53
+              }
+            ],
+            "HookTypeName": "Modify",
+            "Name": "FixCheckDriveEndNRE [patch]",
+            "HookName": "FixCheckDriveEndNRE",
+            "AssemblyName": "Assembly-CSharp.dll",
+            "TypeName": "GroundManager",
+            "Flagged": true,
+            "Signature": {
+              "Exposure": 0,
+              "Name": "CheckDriveEnd",
+              "ReturnType": "System.Void",
+              "Parameters": [
+                "UnityEngine.GameObject",
+                "System.Collections.Generic.Dictionary`2<T,UnityEngine.Vector3>"
+              ]
+            },
+            "MSILHash": "t7zaiOPnOQol01668X4DgfFbtOjZuJ8h0YqNsFgrTBE=",
+            "BaseHookName": null,
+            "HookCategory": "_Patches"
+          }
+        },
+        {
+          "Type": "Modify",
+          "Hook": {
+            "InjectionIndex": 3,
+            "RemoveCount": 0,
+            "Instructions": [
+              {
+                "OpCode": "ldarg_0",
+                "OpType": "None",
+                "Operand": null
+              },
+              {
+                "OpCode": "ldfld",
+                "OpType": "Field",
+                "Operand": "Assembly-CSharp|GrabManager|grabbedObjects"
+              },
+              {
+                "OpCode": "ldloc_0",
+                "OpType": "None",
+                "Operand": null
+              },
+              {
+                "OpCode": "callvirt",
+                "OpType": "Method",
+                "Operand": "mscorlib|System.Collections.Generic.List`1[UnityEngine.CoreModule|GameObject]|get_Item"
+              },
+              {
+                "OpCode": "ldnull",
+                "OpType": "None",
+                "Operand": null
+              },
+              {
+                "OpCode": "call",
+                "OpType": "Method",
+                "Operand": "UnityEngine.CoreModule|UnityEngine.Object|op_Inequality"
+              },
+              {
+                "OpCode": "brfalse_s",
+                "OpType": "Instruction",
+                "Operand": 22
+              }
+            ],
+            "HookTypeName": "Modify",
+            "Name": "FixDistributeForceNRE [patch]",
+            "HookName": "FixDistributeForceNRE",
+            "AssemblyName": "Assembly-CSharp.dll",
+            "TypeName": "GrabManager",
+            "Flagged": true,
+            "Signature": {
+              "Exposure": 2,
+              "Name": "DistributeForce",
+              "ReturnType": "System.Void",
+              "Parameters": [
+                "UnityEngine.Vector3"
+              ]
+            },
+            "MSILHash": "btsY60FShdS4vJqOV7Dfm0II0nNnsb5RNPCdM/rUg8M=",
+            "BaseHookName": null,
+            "HookCategory": "_Patches"
+          }
+        },
+        {
+          "Type": "Modify",
+          "Hook": {
+            "InjectionIndex": 0,
+            "RemoveCount": 54,
+            "Instructions": [
+              {
+                "OpCode": "ldarg_0",
+                "OpType": "None",
+                "Operand": null
+              },
+              {
+                "OpCode": "call",
+                "OpType": "Method",
+                "Operand": "UnityEngine.CoreModule|UnityEngine.Debug|Log"
+              }
+            ],
+            "HookTypeName": "Modify",
+            "Name": "SendShellToDebug [patch]",
+            "HookName": "SendShellToDebug",
+            "AssemblyName": "Assembly-CSharp.dll",
+            "TypeName": "Shell",
+            "Flagged": false,
+            "Signature": {
+              "Exposure": 2,
+              "Name": "Print",
+              "ReturnType": "System.Void",
+              "Parameters": [
+                "System.String"
+              ]
+            },
+            "MSILHash": "ilC9v8zUoB4oAkRGJF/gdeLvNnGIO8cqikR6uJWVtrM=",
+            "BaseHookName": null,
+            "HookCategory": "_Patches"
+          }
+        },
+        {
+          "Type": "Modify",
+          "Hook": {
+            "InjectionIndex": 7,
+            "RemoveCount": 6,
+            "Instructions": [
+              {
+                "OpCode": "ldfld",
+                "OpType": "Field",
+                "Operand": "Assembly-CSharp|Multiplayer.NetHost|isLocal"
+              },
+              {
+                "OpCode": "brfalse_s",
+                "OpType": "Instruction",
+                "Operand": 14
+              },
+              {
+                "OpCode": "ldarg_2",
+                "OpType": "None",
+                "Operand": null
+              }
+            ],
+            "HookTypeName": "Modify",
+            "Name": "ServerChatOnlyOnReceive [patch]",
+            "HookName": "ServerChatOnlyOnReceive",
+            "AssemblyName": "Assembly-CSharp.dll",
+            "TypeName": "Multiplayer.NetChat",
+            "Flagged": true,
+            "Signature": {
+              "Exposure": 2,
+              "Name": "OnReceive",
+              "ReturnType": "System.Void",
+              "Parameters": [
+                "System.UInt32",
+                "System.String",
+                "System.String"
+              ]
+            },
+            "MSILHash": "uO0Y//fKN8sf+JeHYlfLX/erOoA3iXjVC+pSsyBn5Sc=",
+            "BaseHookName": null,
+            "HookCategory": "_Patches"
+          }
+        },
+        {
+          "Type": "Simple",
+          "Hook": {
+            "InjectionIndex": 33,
+            "ReturnBehavior": 1,
+            "ArgumentBehavior": 4,
+            "ArgumentString": "l3, l1, l4",
+            "HookTypeName": "Simple",
+            "Name": "OnPlayerSkin",
+            "HookName": "OnPlayerSkin",
+            "AssemblyName": "Assembly-CSharp.dll",
+            "TypeName": "Multiplayer.NetGame",
+            "Flagged": false,
+            "Signature": {
+              "Exposure": 0,
+              "Name": "OnReceiveSkin",
+              "ReturnType": "System.Void",
+              "Parameters": [
+                "Multiplayer.NetStream"
+              ]
+            },
+            "MSILHash": "IFa4kdF3B7koKm1XE+g2v73lXrQDSeWGw/AUFawglCU=",
+            "BaseHookName": null,
+            "HookCategory": "Player"
+          }
+        },
+        {
+          "Type": "Modify",
+          "Hook": {
+            "InjectionIndex": 70,
+            "RemoveCount": 2,
+            "Instructions": [],
+            "HookTypeName": "Modify",
+            "Name": "RemoveServerPlayer [patch]",
+            "HookName": "RemoveServerPlayer",
+            "AssemblyName": "Assembly-CSharp.dll",
+            "TypeName": "Multiplayer.NetGame",
+            "Flagged": false,
+            "Signature": {
+              "Exposure": 0,
+              "Name": "HostGameCallback",
+              "ReturnType": "System.Void",
+              "Parameters": [
+                "System.String"
+              ]
+            },
+            "MSILHash": "iOJ2faWcTqcqL2DG87EfJRq8aGIa9kIiw7Z8VGhVz00=",
+            "BaseHookName": null,
+            "HookCategory": "_Patches"
+          }
+        },
+        {
+          "Type": "Modify",
+          "Hook": {
+            "InjectionIndex": 7,
+            "RemoveCount": 19,
+            "Instructions": [],
+            "HookTypeName": "Modify",
+            "Name": "RemoveServerPlayerOnList [patch]",
+            "HookName": "RemoveServerPlayerOnList",
+            "AssemblyName": "Assembly-CSharp.dll",
+            "TypeName": "Multiplayer.NetChat",
+            "Flagged": false,
+            "Signature": {
+              "Exposure": 0,
+              "Name": "OnList",
+              "ReturnType": "System.Void",
+              "Parameters": []
+            },
+            "MSILHash": "5ezDLwWVpjNTksJ62hGm3f0Dk9czwucfW5fdEVRjpgg=",
+            "BaseHookName": null,
+            "HookCategory": "_Patches"
+          }
+        },
+        {
+          "Type": "Modify",
+          "Hook": {
+            "InjectionIndex": 30,
+            "RemoveCount": 8,
+            "Instructions": [
+              {
+                "OpCode": "ldloc_1",
+                "OpType": "None",
+                "Operand": null
+              },
+              {
+                "OpCode": "ldc_i4_1",
+                "OpType": "None",
+                "Operand": null
+              }
+            ],
+            "HookTypeName": "Modify",
+            "Name": "RemoveHostFromClients [patch 1]",
+            "HookName": "RemoveHostFromClients",
+            "AssemblyName": "Assembly-CSharp.dll",
+            "TypeName": "Multiplayer.NetChat",
+            "Flagged": false,
+            "Signature": {
+              "Exposure": 0,
+              "Name": "GetClient",
+              "ReturnType": "Multiplayer.NetHost",
+              "Parameters": [
+                "System.String"
+              ]
+            },
+            "MSILHash": "e9DqCmLaXKKXrvsj28hN0AOWRrYbHVn4hBAay38qkPA=",
+            "BaseHookName": null,
+            "HookCategory": "_Patches"
+          }
+        },
+        {
+          "Type": "Modify",
+          "Hook": {
+            "InjectionIndex": 40,
+            "RemoveCount": 1,
+            "Instructions": [
+              {
+                "OpCode": "ldc_i4_1",
+                "OpType": "None",
+                "Operand": null
+              }
+            ],
+            "HookTypeName": "Modify",
+            "Name": "RemoveHostFromClients [patch 2]",
+            "HookName": "RemoveHostFromClients",
+            "AssemblyName": "Assembly-CSharp.dll",
+            "TypeName": "Multiplayer.NetChat",
+            "Flagged": false,
+            "Signature": {
+              "Exposure": 0,
+              "Name": "GetClient",
+              "ReturnType": "Multiplayer.NetHost",
+              "Parameters": [
+                "System.String"
+              ]
+            },
+            "MSILHash": "e9DqCmLaXKKXrvsj28hN0AOWRrYbHVn4hBAay38qkPA=",
+            "BaseHookName": "RemoveHostFromClients [patch 1]",
+            "HookCategory": "_Patches"
+          }
+        },
+        {
+          "Type": "Modify",
+          "Hook": {
+            "InjectionIndex": 13,
+            "RemoveCount": 1,
+            "Instructions": [],
+            "HookTypeName": "Modify",
+            "Name": "RemoveHelpPrintOnStart [patch]",
+            "HookName": "RemoveHelpPrintOnStart",
+            "AssemblyName": "Assembly-CSharp.dll",
+            "TypeName": "Multiplayer.App",
+            "Flagged": false,
+            "Signature": {
+              "Exposure": 2,
+              "Name": "OnHostGameSuccess",
+              "ReturnType": "System.Void",
+              "Parameters": []
+            },
+            "MSILHash": "G95TUNwzJ0eVF+HQ1qugBgwGUFwRTjkbUnGsb4KRgiQ=",
+            "BaseHookName": null,
+            "HookCategory": "_Patches"
+          }
+        },
+        {
+          "Type": "Simple",
+          "Hook": {
+            "InjectionIndex": 0,
+            "ReturnBehavior": 0,
+            "ArgumentBehavior": 0,
+            "ArgumentString": null,
+            "HookTypeName": "Simple",
+            "Name": "OnClientHelo",
+            "HookName": "OnClientHelo",
+            "AssemblyName": "Assembly-CSharp.dll",
+            "TypeName": "Multiplayer.NetGame",
+            "Flagged": false,
+            "Signature": {
+              "Exposure": 2,
+              "Name": "OnClientHelo",
+              "ReturnType": "System.Void",
+              "Parameters": [
+                "Multiplayer.NetHost",
+                "Multiplayer.NetStream"
+              ]
+            },
+            "MSILHash": "pnlLkc0f5xAHdzJroqDPypWM4o2kFB1u6CP95tn3Rzo=",
+            "BaseHookName": null,
+            "HookCategory": null
+          }
+        },
+        {
+          "Type": "Simple",
+          "Hook": {
+            "InjectionIndex": 0,
+            "ReturnBehavior": 0,
+            "ArgumentBehavior": 0,
+            "ArgumentString": null,
+            "HookTypeName": "Simple",
+            "Name": "OnRequestRemovePlayerServer",
+            "HookName": "OnRequestRemovePlayerServer",
+            "AssemblyName": "Assembly-CSharp.dll",
+            "TypeName": "Multiplayer.NetGame",
+            "Flagged": false,
+            "Signature": {
+              "Exposure": 0,
+              "Name": "OnRequestRemovePlayerServer",
+              "ReturnType": "System.Void",
+              "Parameters": [
+                "Multiplayer.NetHost",
+                "Multiplayer.NetStream"
+              ]
+            },
+            "MSILHash": "pkn/seW8W6vxmEy+cWc7meFNxtz6gtHi4k4XBUiqeN4=",
+            "BaseHookName": null,
+            "HookCategory": null
+          }
+        }
+      ],
+      "Modifiers": [
+        {
+          "Name": "Multiplayer.NetPlayer::nametag",
+          "AssemblyName": "Assembly-CSharp.dll",
+          "TypeName": "Multiplayer.NetPlayer",
+          "Type": 0,
+          "TargetExposure": [
+            2
+          ],
+          "Flagged": false,
+          "Signature": {
+            "Exposure": [
+              3
+            ],
+            "Name": "nametag",
+            "FullTypeName": "NameTag Multiplayer.NetPlayer::nametag",
+            "Parameters": []
+          },
+          "MSILHash": ""
+        },
+        {
+          "Name": "CommandRegistry::Execute",
+          "AssemblyName": "Assembly-CSharp.dll",
+          "TypeName": "CommandRegistry",
+          "Type": 1,
+          "TargetExposure": [
+            2
+          ],
+          "Flagged": false,
+          "Signature": {
+            "Exposure": [
+              3
+            ],
+            "Name": "Execute",
+            "FullTypeName": "System.Void",
+            "Parameters": [
+              "System.String"
+            ]
+          },
+          "MSILHash": "ZeZHjKYen1jDJhAFhloYWJL+FBx2uTdKU8FOQht3qyU="
+        },
+        {
+          "Name": "Multiplayer.NetGame::friendly",
+          "AssemblyName": "Assembly-CSharp.dll",
+          "TypeName": "Multiplayer.NetGame",
+          "Type": 0,
+          "TargetExposure": [
+            2,
+            4
+          ],
+          "Flagged": false,
+          "Signature": {
+            "Exposure": [
+              3
+            ],
+            "Name": "friendly",
+            "FullTypeName": "System.Boolean Multiplayer.NetGame::friendly",
+            "Parameters": []
+          },
+          "MSILHash": ""
+        },
+        {
+          "Name": "CommandRegistry::commands",
+          "AssemblyName": "Assembly-CSharp.dll",
+          "TypeName": "CommandRegistry",
+          "Type": 0,
+          "TargetExposure": [
+            2
+          ],
+          "Flagged": false,
+          "Signature": {
+            "Exposure": [
+              0
+            ],
+            "Name": "commands",
+            "FullTypeName": "System.Collections.Generic.Dictionary`2<System.String,System.Action> CommandRegistry::commands",
+            "Parameters": []
+          },
+          "MSILHash": ""
+        },
+        {
+          "Name": "CommandRegistry::commandsStr",
+          "AssemblyName": "Assembly-CSharp.dll",
+          "TypeName": "CommandRegistry",
+          "Type": 0,
+          "TargetExposure": [
+            2
+          ],
+          "Flagged": false,
+          "Signature": {
+            "Exposure": [
+              0
+            ],
+            "Name": "commandsStr",
+            "FullTypeName": "System.Collections.Generic.Dictionary`2<System.String,System.Action`1<System.String>> CommandRegistry::commandsStr",
+            "Parameters": []
+          },
+          "MSILHash": ""
+        },
+        {
+          "Name": "CommandRegistry::description",
+          "AssemblyName": "Assembly-CSharp.dll",
+          "TypeName": "CommandRegistry",
+          "Type": 0,
+          "TargetExposure": [
+            2
+          ],
+          "Flagged": false,
+          "Signature": {
+            "Exposure": [
+              0
+            ],
+            "Name": "description",
+            "FullTypeName": "System.Collections.Generic.Dictionary`2<System.String,System.String> CommandRegistry::description",
+            "Parameters": []
+          },
+          "MSILHash": ""
+        },
+        {
+          "Name": "Multiplayer.NetGame::FindClient",
+          "AssemblyName": "Assembly-CSharp.dll",
+          "TypeName": "Multiplayer.NetGame",
+          "Type": 1,
+          "TargetExposure": [
+            2
+          ],
+          "Flagged": false,
+          "Signature": {
+            "Exposure": [
+              0
+            ],
+            "Name": "FindClient",
+            "FullTypeName": "Multiplayer.NetHost",
+            "Parameters": [
+              "System.Object"
+            ]
+          },
+          "MSILHash": "B3gHvYpFFT6C/35NkfxbeQePAB4NQa1Fspu8ZNQZ9kU="
+        },
+        {
+          "Name": "Shell::commands",
+          "AssemblyName": "Assembly-CSharp.dll",
+          "TypeName": "Shell",
+          "Type": 0,
+          "TargetExposure": [
+            2,
+            4
+          ],
+          "Flagged": false,
+          "Signature": {
+            "Exposure": [
+              0
+            ],
+            "Name": "commands",
+            "FullTypeName": "CommandRegistry Shell::commands",
+            "Parameters": []
+          },
+          "MSILHash": ""
+        }
+      ],
+      "Fields": [
+        {
+          "Name": "IPlayer",
+          "AssemblyName": "Assembly-CSharp.dll",
+          "TypeName": "Multiplayer.NetPlayer",
+          "FieldType": "uMod|uMod.Libraries.Universal.IPlayer",
+          "Flagged": false
+        }
+      ]
+    }
+  ]
+}
