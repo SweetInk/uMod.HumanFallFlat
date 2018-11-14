@@ -795,7 +795,7 @@
             "HookName": "ServerChatOnlyOnReceive",
             "AssemblyName": "Assembly-CSharp.dll",
             "TypeName": "Multiplayer.NetChat",
-            "Flagged": true,
+            "Flagged": false,
             "Signature": {
               "Exposure": 2,
               "Name": "OnReceive",
@@ -987,7 +987,7 @@
             "HookName": "OnClientHelo",
             "AssemblyName": "Assembly-CSharp.dll",
             "TypeName": "Multiplayer.NetGame",
-            "Flagged": false,
+            "Flagged": true,
             "Signature": {
               "Exposure": 2,
               "Name": "OnClientHelo",
@@ -1014,7 +1014,7 @@
             "HookName": "OnRequestRemovePlayerServer",
             "AssemblyName": "Assembly-CSharp.dll",
             "TypeName": "Multiplayer.NetGame",
-            "Flagged": false,
+            "Flagged": true,
             "Signature": {
               "Exposure": 0,
               "Name": "OnRequestRemovePlayerServer",

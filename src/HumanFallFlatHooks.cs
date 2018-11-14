@@ -143,7 +143,7 @@ namespace uMod.HumanFallFlat
             }
 
             // Override/set server hostname
-            string serverName = $"Dev Test Server | {Server.Players}/{Server.MaxPlayers}";
+            string serverName = $"{SteamFriends.GetPersonaName()}'s uMod Server | {Server.Players}/{Server.MaxPlayers}";
             SteamMatchmaking.SetLobbyData((NetGame.instance.transport as NetTransportSteam).lobbyID, "name", serverName);
         }
 
@@ -181,7 +181,7 @@ namespace uMod.HumanFallFlat
             }
 
             // Override/set server hostname
-            string serverName = $"Dev Test Server | {Server.Players}/{Server.MaxPlayers}";
+            string serverName = $"{SteamFriends.GetPersonaName()}'s uMod Server | {Server.Players}/{Server.MaxPlayers}";
             SteamMatchmaking.SetLobbyData((NetGame.instance.transport as NetTransportSteam).lobbyID, "name", serverName);
         }
 

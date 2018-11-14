@@ -83,11 +83,9 @@ namespace uMod.HumanFallFlat
 
                 serverInitialized = true;
 
-                // TODO: Show server version
-
                 // Override/set server hostname
-                string serverName = $"Dev Test Server | {Server.Players}/{Server.MaxPlayers}";
-                NetGame.instance.server.name = "Dev Test Server"; // TODO: Get name from command-line +hostname argument
+                string serverName = $"{SteamFriends.GetPersonaName()}'s uMod Server | {Server.Players}/{Server.MaxPlayers}";
+                NetGame.instance.server.name = $"{SteamFriends.GetPersonaName()}'s uMod Server"; // TODO: Get name from command-line +hostname argument
                 SteamMatchmaking.SetLobbyData((NetGame.instance.transport as NetTransportSteam).lobbyID, "name", serverName);
 
                 // Let plugins know server startup is complete
