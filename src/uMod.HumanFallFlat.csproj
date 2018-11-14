@@ -85,6 +85,7 @@
   <Target Name="AfterBuild">
     <ItemGroup>
       <CoreFiles Include="$(TargetDir)\uMod*.dll" />
+      <PatchedFiles Include="$(ProjectDir)\Dependencies\Base\*.dll" />
       <PatchedFiles Include="$(ProjectDir)\Dependencies\Patched\$(ManagedDir)\Assembly-CSharp.dll" />
       <ContentFiles Include="$(SolutionDir)\packages\oxide.references\**\lib\any\net35\*.*" />
       <ContentFiles Include="$(SolutionDir)\packages\umod.mysql\**\lib\any\MySql.*.dll; $(SolutionDir)\packages\umod.mysql\**\lib\any\System.*.dll" />
