@@ -85,9 +85,9 @@ namespace uMod.HumanFallFlat
         public static string[] Filter =
         {
             "Error: Global Illumination requires a graphics device to render",
+            "HDR Render Texture not supported, disabling HDR on reflection probe",
             "OnLobbyEnter",
             "OnSessionConnectFail",
-            "Wrong state",
             "invalid torque"
         };
 
@@ -159,8 +159,9 @@ namespace uMod.HumanFallFlat
 
             // Make server public/open
             NetGame.friendly = false; // TODO: Make command-line argument - friendsonly
-            Options.lobbyInviteOnly = 0; // TODO: Make command-line argument - inviteonly
+            Options.lobbyInviteOnly = 0;
             (NetGame.instance.transport as NetTransportSteam).UpdateLobbyType();
+            (NetGame.instance.transport as NetTransportSteam).SetJoinable(true);
 
             // Allow join in progress
             Options.lobbyJoinInProgress = 1; // TODO: Make command-line argument - joininprogress
@@ -174,8 +175,8 @@ namespace uMod.HumanFallFlat
             CheatCodes.cheatMode = true;
 
             // Forcefully host a game server
-            App.state = AppSate.ServerHost; // ServerLobby?
-            NetGame.instance.HostGame();
+            App.state = AppSate.Menu;
+            App.instance.HostGame();
         }
 
         private static void ServerConsoleOnInput(string input)
