@@ -20,9 +20,10 @@ namespace uMod.HumanFallFlat
         /// </summary>
         /// <param name="netHost"></param>
         /// <param name="hostId"></param>
+        /// <param name="name"></param>
         /// <param name="message"></param>
         [HookMethod("IOnPlayerChat")]
-        private object IOnPlayerChat(NetHost netHost, uint hostId, string message)
+        private object IOnPlayerChat(NetHost netHost, uint hostId, string name, string message)
         {
             if (message.Trim().Length <= 1)
             {
@@ -39,6 +40,12 @@ namespace uMod.HumanFallFlat
                 return null;
             }
 
+            // Update player's stored username
+            if (!player.Name.Equals(name))
+            {
+                player.Rename(name);
+            }
+
             // Is it a chat command?
             string str = message.Substring(0, 1);
             if (!str.Equals("/") && !str.Equals("!"))
@@ -51,7 +58,7 @@ namespace uMod.HumanFallFlat
                     return true;
                 }
 
-                Interface.uMod.LogInfo($"[Chat] {netPlayer.host.name}: {message}");
+                Interface.uMod.LogInfo($"[Chat] {name}: {message}");
                 return null;
             }
 

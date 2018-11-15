@@ -197,6 +197,9 @@ namespace uMod.HumanFallFlat
         {
             netPlayer.host.name = name;
             netPlayer.nametag.textMesh.text = name;
+
+            netPlayer.IPlayer.Name = name;
+            libPerms.UpdateNickname(Id, name);
         }
 
         /// <summary>
