@@ -715,7 +715,7 @@
                 "System.Collections.Generic.Dictionary`2<T,UnityEngine.Vector3>"
               ]
             },
-            "MSILHash": "t7zaiOPnOQol01668X4DgfFbtOjZuJ8h0YqNsFgrTBE=",
+            "MSILHash": "G8ZAZikcqyKxsi6Dzp5RLUmE/WJFFttBnxpOszobExo=",
             "BaseHookName": null,
             "HookCategory": "_Patches"
           }
@@ -776,7 +776,7 @@
                 "UnityEngine.Vector3"
               ]
             },
-            "MSILHash": "btsY60FShdS4vJqOV7Dfm0II0nNnsb5RNPCdM/rUg8M=",
+            "MSILHash": "7b5sacp9DaiI9op7bBsFYhpLcB/a5nIixXbpOxgTEoM=",
             "BaseHookName": null,
             "HookCategory": "_Patches"
           }
@@ -828,7 +828,7 @@
             "HookName": "SendShellToDebug",
             "AssemblyName": "Assembly-CSharp.dll",
             "TypeName": "Shell",
-            "Flagged": false,
+            "Flagged": true,
             "Signature": {
               "Exposure": 2,
               "Name": "Print",
@@ -880,7 +880,7 @@
                 "System.String"
               ]
             },
-            "MSILHash": "uO0Y//fKN8sf+JeHYlfLX/erOoA3iXjVC+pSsyBn5Sc=",
+            "MSILHash": "5/a0WctRZl5RIw81ACWdNzW72HkvRT5jvtz/Gzd6I8s=",
             "BaseHookName": null,
             "HookCategory": "_Patches"
           }
@@ -1213,7 +1213,7 @@
             "HookName": "IOnPlayerChat",
             "AssemblyName": "Assembly-CSharp.dll",
             "TypeName": "Multiplayer.NetGame",
-            "Flagged": true,
+            "Flagged": false,
             "Signature": {
               "Exposure": 2,
               "Name": "SendChatMessage",
