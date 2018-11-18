@@ -1270,6 +1270,55 @@
             "BaseHookName": "InitLogging [internal]",
             "HookCategory": "_Patches"
           }
+        },
+        {
+          "Type": "Modify",
+          "Hook": {
+            "InjectionIndex": 33,
+            "RemoveCount": 0,
+            "Instructions": [
+              {
+                "OpCode": "ldarg_0",
+                "OpType": "None",
+                "Operand": null
+              },
+              {
+                "OpCode": "ldfld",
+                "OpType": "Field",
+                "Operand": "Assembly-CSharp|MainMenu|workshopButton"
+              },
+              {
+                "OpCode": "callvirt",
+                "OpType": "Method",
+                "Operand": "UnityEngine.CoreModule|UnityEngine.Component|get_gameObject"
+              },
+              {
+                "OpCode": "ldc_i4_1",
+                "OpType": "None",
+                "Operand": null
+              },
+              {
+                "OpCode": "callvirt",
+                "OpType": "Method",
+                "Operand": "UnityEngine.CoreModule|UnityEngine.GameObject|SetActive(System.Boolean)"
+              }
+            ],
+            "HookTypeName": "Modify",
+            "Name": "AddWorkshopButton [patch]",
+            "HookName": "AddWorkshopButton",
+            "AssemblyName": "Assembly-CSharp.dll",
+            "TypeName": "MainMenu",
+            "Flagged": false,
+            "Signature": {
+              "Exposure": 2,
+              "Name": "OnGotFocus",
+              "ReturnType": "System.Void",
+              "Parameters": []
+            },
+            "MSILHash": "vqEG4kRz4UeIcfX+TSoLdXi3/nS/Lcxr7I0Xk+P+/CU=",
+            "BaseHookName": null,
+            "HookCategory": "_Patches"
+          }
         }
       ],
       "Modifiers": [
