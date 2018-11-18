@@ -21,6 +21,18 @@ namespace uMod.HumanFallFlat
         internal static VersionNumber AssemblyVersion = new VersionNumber(AssemblyName.Version.Major, AssemblyName.Version.Minor, AssemblyName.Version.Build);
         internal static string AssemblyAuthors = ((AssemblyCompanyAttribute)Attribute.GetCustomAttribute(Assembly, typeof(AssemblyCompanyAttribute), false)).Company;
 
+        // The command line
+        public CommandLine CommandLine;
+
+        // The configuration
+        public static bool Dedicated { get; set; } = false;
+        public static bool FriendsOnly { get; set; } = false;
+        public static bool InviteOnly { get; set; } = false;
+        public static bool JoinInProgress { get; set; } = true;
+        public static int FpsLimit { get; set; } = 256;
+        public static int MaxPlayers { get; set; } = 10;
+        public static string ServerName { get; set; } = "My uMod Server";
+
         /// <summary>
         /// Gets whether this extension is for a specific game
         /// </summary>
@@ -84,10 +96,12 @@ namespace uMod.HumanFallFlat
         /// </summary>
         public static string[] Filter =
         {
+            "DontDestroyOnLoad only work for root GameObjects or components on root GameObjects",
             "Error: Global Illumination requires a graphics device to render",
             "HDR Render Texture not supported, disabling HDR on reflection probe",
             "OnLobbyEnter",
             "OnSessionConnectFail",
+            "Trim",
             "invalid torque"
         };
 
@@ -120,6 +134,18 @@ namespace uMod.HumanFallFlat
         /// </summary>
         public override void OnModLoad()
         {
+            // Parse command-line to set instance directory
+            CommandLine = new CommandLine(Environment.GetCommandLineArgs());
+            Dedicated = CommandLine.HasVariable("dedicated");
+            FriendsOnly = CommandLine.HasVariable("friendsonly");
+            InviteOnly = CommandLine.HasVariable("inviteonly");
+            JoinInProgress = CommandLine.HasVariable("joininprogress");
+            if (CommandLine.HasVariable("servername"))
+            {
+                CommandLine.GetArgument("servername", out _, out string serverName);
+                ServerName = serverName;
+            }
+
             CSharpPluginLoader.PluginReferences.UnionWith(DefaultReferences);
 
             // Override log message handling
@@ -128,6 +154,7 @@ namespace uMod.HumanFallFlat
             // Liten for server console input, if enabled
             if (Interface.uMod.EnableConsole())
             {
+                Interface.uMod.ServerConsole.Title = () => ServerName;
                 Interface.uMod.ServerConsole.Input += ServerConsoleOnInput;
                 Interface.uMod.ServerConsole.Completion = input =>
                 {
@@ -145,38 +172,25 @@ namespace uMod.HumanFallFlat
                 };
             }
 
-            // Remove startup experience UI
-            if (StartupExperienceUI.instance != null)
+            // Check if server is intended to be dedicated
+            if (Dedicated)
             {
-                UnityEngine.Object.Destroy(StartupExperienceUI.instance.gameObject);
+                if (StartupExperienceUI.instance != null)
+                {
+                    // Remove startup experience UI
+                    UnityEngine.Object.Destroy(StartupExperienceUI.instance.gameObject);
+                }
+
+                // Limit FPS to reduce CPU usage
+                Application.targetFrameRate = FpsLimit;
+
+                // Disable game audio for server
+                GameAudio.instance.SetMasterLevel(0f);
+
+                // Forcefully host a game server
+                App.state = AppSate.Menu;
+                App.instance.HostGame();
             }
-
-            // Disable game audio for server
-            GameAudio.instance.SetMasterLevel(0f);
-
-            // Limit FPS to reduce CPU usage
-            Application.targetFrameRate = 256;// TODO: Make command-line argument - fpslimit
-
-            // Make server public/open
-            NetGame.friendly = false; // TODO: Make command-line argument - friendsonly
-            Options.lobbyInviteOnly = 0;
-            (NetGame.instance.transport as NetTransportSteam).UpdateLobbyType();
-            (NetGame.instance.transport as NetTransportSteam).SetJoinable(true);
-
-            // Allow join in progress
-            Options.lobbyJoinInProgress = 1; // TODO: Make command-line argument - joininprogress
-
-            // Set/override max players
-            Options.lobbyMaxPlayers = 10; // TODO: Make command-line argument - maxplayers
-            (NetGame.instance.transport as NetTransportSteam).UpdateLobbyPlayers();
-            App.instance.OnClientCountChanged();
-
-            // Use cheat mode to enable/disable some stuff
-            CheatCodes.cheatMode = true;
-
-            // Forcefully host a game server
-            App.state = AppSate.Menu;
-            App.instance.HostGame();
         }
 
         private static void ServerConsoleOnInput(string input)

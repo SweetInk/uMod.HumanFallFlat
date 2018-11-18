@@ -20,8 +20,8 @@ namespace uMod.HumanFallFlat
         /// </summary>
         public string Name
         {
-            get => NetGame.instance.server.name;
-            set => NetGame.instance.server.name = value;
+            get => HumanFallFlatExtension.ServerName; // NetGame.instance.server.name
+            set => HumanFallFlatExtension.ServerName = value; // NetGame.instance.server.name
         }
 
         private static IPAddress address;
@@ -194,8 +194,16 @@ namespace uMod.HumanFallFlat
         public void Broadcast(string message, string prefix, params object[] args)
         {
             message = args.Length > 0 ? string.Format(Formatter.ToUnity(message), args) : Formatter.ToUnity(message);
-            string formatted = prefix != null ? $"{prefix} {message}" : message;
-            NetChat.instance.Send(formatted);
+            using (NetStream netStream = NetGame.BeginMessage(NetMsgId.Chat))
+            {
+                netStream.WriteNetId(NetGame.instance.local.hostId);
+                netStream.Write(prefix ?? string.Empty);
+                netStream.Write(message);
+                for (int i = 0; i < NetGame.instance.clients.Count; i++)
+                {
+                    NetGame.instance.SendReliable(NetGame.instance.clients[i], netStream);
+                }
+            }
         }
 
         /// <summary>

@@ -72,9 +72,9 @@
             "InjectionIndex": 9,
             "ReturnBehavior": 1,
             "ArgumentBehavior": 4,
-            "ArgumentString": "a0, l0, l1, l2",
+            "ArgumentString": "a0, l1, l2",
             "HookTypeName": "Simple",
-            "Name": "IOnPlayerChat [internal]",
+            "Name": "IOnPlayerChat [internal, remote]",
             "HookName": "IOnPlayerChat",
             "AssemblyName": "Assembly-CSharp.dll",
             "TypeName": "Multiplayer.NetGame",
@@ -154,9 +154,24 @@
             "RemoveCount": 0,
             "Instructions": [
               {
-                "OpCode": "ret",
-                "OpType": "None",
-                "Operand": null
+                "OpCode": "call",
+                "OpType": "Method",
+                "Operand": "mscorlib|System.Environment|GetCommandLineArgs"
+              },
+              {
+                "OpCode": "ldstr",
+                "OpType": "String",
+                "Operand": "-dedicated"
+              },
+              {
+                "OpCode": "call",
+                "OpType": "Method",
+                "Operand": "System.Core|System.Linq.Enumerable|Contains[System.String]"
+              },
+              {
+                "OpCode": "brtrue",
+                "OpType": "Instruction",
+                "Operand": 95
               }
             ],
             "HookTypeName": "Modify",
@@ -185,9 +200,24 @@
             "RemoveCount": 0,
             "Instructions": [
               {
-                "OpCode": "ret",
-                "OpType": "None",
-                "Operand": null
+                "OpCode": "call",
+                "OpType": "Method",
+                "Operand": "mscorlib|System.Environment|GetCommandLineArgs"
+              },
+              {
+                "OpCode": "ldstr",
+                "OpType": "String",
+                "Operand": "-dedicated"
+              },
+              {
+                "OpCode": "call",
+                "OpType": "Method",
+                "Operand": "System.Core|System.Linq.Enumerable|Contains[System.String]"
+              },
+              {
+                "OpCode": "brtrue",
+                "OpType": "Instruction",
+                "Operand": 315
               }
             ],
             "HookTypeName": "Modify",
@@ -223,9 +253,24 @@
             "RemoveCount": 0,
             "Instructions": [
               {
-                "OpCode": "ret",
-                "OpType": "None",
-                "Operand": null
+                "OpCode": "call",
+                "OpType": "Method",
+                "Operand": "mscorlib|System.Environment|GetCommandLineArgs"
+              },
+              {
+                "OpCode": "ldstr",
+                "OpType": "String",
+                "Operand": "-dedicated"
+              },
+              {
+                "OpCode": "call",
+                "OpType": "Method",
+                "Operand": "System.Core|System.Linq.Enumerable|Contains[System.String]"
+              },
+              {
+                "OpCode": "brtrue",
+                "OpType": "Instruction",
+                "Operand": 12
               }
             ],
             "HookTypeName": "Modify",
@@ -252,9 +297,24 @@
             "RemoveCount": 0,
             "Instructions": [
               {
-                "OpCode": "ret",
-                "OpType": "None",
-                "Operand": null
+                "OpCode": "call",
+                "OpType": "Method",
+                "Operand": "mscorlib|System.Environment|GetCommandLineArgs"
+              },
+              {
+                "OpCode": "ldstr",
+                "OpType": "String",
+                "Operand": "-dedicated"
+              },
+              {
+                "OpCode": "call",
+                "OpType": "Method",
+                "Operand": "System.Core|System.Linq.Enumerable|Contains[System.String]"
+              },
+              {
+                "OpCode": "brtrue",
+                "OpType": "Instruction",
+                "Operand": 19
               }
             ],
             "HookTypeName": "Modify",
@@ -280,6 +340,26 @@
             "InjectionIndex": 0,
             "RemoveCount": 0,
             "Instructions": [
+              {
+                "OpCode": "call",
+                "OpType": "Method",
+                "Operand": "mscorlib|System.Environment|GetCommandLineArgs"
+              },
+              {
+                "OpCode": "ldstr",
+                "OpType": "String",
+                "Operand": "-dedicated"
+              },
+              {
+                "OpCode": "call",
+                "OpType": "Method",
+                "Operand": "System.Core|System.Linq.Enumerable|Contains[System.String]"
+              },
+              {
+                "OpCode": "brfalse",
+                "OpType": "Instruction",
+                "Operand": 0
+              },
               {
                 "OpCode": "ldc_i4_1",
                 "OpType": "None",
@@ -370,7 +450,7 @@
             "HookName": "SendChatPrintToDebug",
             "AssemblyName": "Assembly-CSharp.dll",
             "TypeName": "Multiplayer.NetChat",
-            "Flagged": false,
+            "Flagged": true,
             "Signature": {
               "Exposure": 2,
               "Name": "Print",
@@ -437,7 +517,7 @@
         {
           "Type": "InitMod",
           "Hook": {
-            "InjectionIndex": 0,
+            "InjectionIndex": 5,
             "HookTypeName": "Initialize uMod",
             "Name": "InitMod [internal]",
             "HookName": "InitMod",
@@ -458,7 +538,7 @@
         {
           "Type": "Simple",
           "Hook": {
-            "InjectionIndex": 1,
+            "InjectionIndex": 6,
             "ReturnBehavior": 0,
             "ArgumentBehavior": 0,
             "ArgumentString": null,
@@ -556,37 +636,6 @@
             "MSILHash": "POAJRLVtf14vlv4zaCvybYSfIi8zUJ+191002d34V9E=",
             "BaseHookName": null,
             "HookCategory": null
-          }
-        },
-        {
-          "Type": "Modify",
-          "Hook": {
-            "InjectionIndex": 0,
-            "RemoveCount": 2,
-            "Instructions": [
-              {
-                "OpCode": "ldstr",
-                "OpType": "String",
-                "Operand": ""
-              }
-            ],
-            "HookTypeName": "Modify",
-            "Name": "UnsetServerChatPrefix [patch]",
-            "HookName": "UnsetServerChatPrefix",
-            "AssemblyName": "Assembly-CSharp.dll",
-            "TypeName": "Multiplayer.NetGame",
-            "Flagged": false,
-            "Signature": {
-              "Exposure": 2,
-              "Name": "SendChatMessage",
-              "ReturnType": "System.Void",
-              "Parameters": [
-                "System.String"
-              ]
-            },
-            "MSILHash": "bnLzUAYSyZvOX5rJPtBubbJDjt1GW93IbnrFPNdY+D8=",
-            "BaseHookName": null,
-            "HookCategory": "_Patches"
           }
         },
         {
@@ -736,8 +785,28 @@
           "Type": "Modify",
           "Hook": {
             "InjectionIndex": 0,
-            "RemoveCount": 54,
+            "RemoveCount": 0,
             "Instructions": [
+              {
+                "OpCode": "call",
+                "OpType": "Method",
+                "Operand": "mscorlib|System.Environment|GetCommandLineArgs"
+              },
+              {
+                "OpCode": "ldstr",
+                "OpType": "String",
+                "Operand": "-dedicated"
+              },
+              {
+                "OpCode": "call",
+                "OpType": "Method",
+                "Operand": "System.Core|System.Linq.Enumerable|Contains[System.String]"
+              },
+              {
+                "OpCode": "brfalse",
+                "OpType": "Instruction",
+                "Operand": 0
+              },
               {
                 "OpCode": "ldarg_0",
                 "OpType": "None",
@@ -747,6 +816,11 @@
                 "OpCode": "call",
                 "OpType": "Method",
                 "Operand": "UnityEngine.CoreModule|UnityEngine.Debug|Log"
+              },
+              {
+                "OpCode": "ret",
+                "OpType": "None",
+                "Operand": null
               }
             ],
             "HookTypeName": "Modify",
@@ -842,7 +916,38 @@
           "Hook": {
             "InjectionIndex": 70,
             "RemoveCount": 2,
-            "Instructions": [],
+            "Instructions": [
+              {
+                "OpCode": "call",
+                "OpType": "Method",
+                "Operand": "mscorlib|System.Environment|GetCommandLineArgs"
+              },
+              {
+                "OpCode": "ldstr",
+                "OpType": "String",
+                "Operand": "-dedicated"
+              },
+              {
+                "OpCode": "call",
+                "OpType": "Method",
+                "Operand": "System.Core|System.Linq.Enumerable|Contains[System.String]"
+              },
+              {
+                "OpCode": "brtrue",
+                "OpType": "Instruction",
+                "Operand": 72
+              },
+              {
+                "OpCode": "ldarg_0",
+                "OpType": "None",
+                "Operand": null
+              },
+              {
+                "OpCode": "call",
+                "OpType": "Method",
+                "Operand": "Assembly-CSharp|Multiplayer.NetGame|AddLocalPlayer"
+              }
+            ],
             "HookTypeName": "Modify",
             "Name": "RemoveServerPlayer [patch]",
             "HookName": "RemoveServerPlayer",
@@ -866,14 +971,35 @@
           "Type": "Modify",
           "Hook": {
             "InjectionIndex": 7,
-            "RemoveCount": 19,
-            "Instructions": [],
+            "RemoveCount": 0,
+            "Instructions": [
+              {
+                "OpCode": "call",
+                "OpType": "Method",
+                "Operand": "mscorlib|System.Environment|GetCommandLineArgs"
+              },
+              {
+                "OpCode": "ldstr",
+                "OpType": "String",
+                "Operand": "-dedicated"
+              },
+              {
+                "OpCode": "call",
+                "OpType": "Method",
+                "Operand": "System.Core|System.Linq.Enumerable|Contains[System.String]"
+              },
+              {
+                "OpCode": "brtrue",
+                "OpType": "Instruction",
+                "Operand": 51
+              }
+            ],
             "HookTypeName": "Modify",
             "Name": "RemoveServerPlayerOnList [patch]",
             "HookName": "RemoveServerPlayerOnList",
             "AssemblyName": "Assembly-CSharp.dll",
             "TypeName": "Multiplayer.NetChat",
-            "Flagged": false,
+            "Flagged": true,
             "Signature": {
               "Exposure": 0,
               "Name": "OnList",
@@ -889,17 +1015,27 @@
           "Type": "Modify",
           "Hook": {
             "InjectionIndex": 30,
-            "RemoveCount": 8,
+            "RemoveCount": 0,
             "Instructions": [
               {
-                "OpCode": "ldloc_1",
-                "OpType": "None",
-                "Operand": null
+                "OpCode": "call",
+                "OpType": "Method",
+                "Operand": "mscorlib|System.Environment|GetCommandLineArgs"
               },
               {
-                "OpCode": "ldc_i4_1",
-                "OpType": "None",
-                "Operand": null
+                "OpCode": "ldstr",
+                "OpType": "String",
+                "Operand": "-dedicated"
+              },
+              {
+                "OpCode": "call",
+                "OpType": "Method",
+                "Operand": "System.Core|System.Linq.Enumerable|Contains[System.String]"
+              },
+              {
+                "OpCode": "brtrue",
+                "OpType": "Instruction",
+                "Operand": 0
               }
             ],
             "HookTypeName": "Modify",
@@ -907,7 +1043,7 @@
             "HookName": "RemoveHostFromClients",
             "AssemblyName": "Assembly-CSharp.dll",
             "TypeName": "Multiplayer.NetChat",
-            "Flagged": false,
+            "Flagged": true,
             "Signature": {
               "Exposure": 0,
               "Name": "GetClient",
@@ -938,7 +1074,7 @@
             "HookName": "RemoveHostFromClients",
             "AssemblyName": "Assembly-CSharp.dll",
             "TypeName": "Multiplayer.NetChat",
-            "Flagged": false,
+            "Flagged": true,
             "Signature": {
               "Exposure": 0,
               "Name": "GetClient",
@@ -1027,6 +1163,112 @@
             "MSILHash": "pkn/seW8W6vxmEy+cWc7meFNxtz6gtHi4k4XBUiqeN4=",
             "BaseHookName": null,
             "HookCategory": null
+          }
+        },
+        {
+          "Type": "Modify",
+          "Hook": {
+            "InjectionIndex": 65,
+            "RemoveCount": 0,
+            "Instructions": [
+              {
+                "OpCode": "ldc_i4_3",
+                "OpType": "None",
+                "Operand": null
+              },
+              {
+                "OpCode": "call",
+                "OpType": "Method",
+                "Operand": "Assembly-CSharp-firstpass|Steamworks.SteamMatchmaking|AddRequestLobbyListDistanceFilter"
+              }
+            ],
+            "HookTypeName": "Modify",
+            "Name": "ListLobbiesWorldwide [patch]",
+            "HookName": "ListLobbiesWorldwide",
+            "AssemblyName": "Assembly-CSharp.dll",
+            "TypeName": "Multiplayer.NetTransportSteam",
+            "Flagged": false,
+            "Signature": {
+              "Exposure": 2,
+              "Name": "ListLobbies",
+              "ReturnType": "System.Void",
+              "Parameters": [
+                "System.Action`1<System.Collections.Generic.List`1<Multiplayer.NetTransportSteam/FriendInfo>>"
+              ]
+            },
+            "MSILHash": "qYou5N9WWEXiywM0xIpnzFUGdEPX255Ra/w9z3zZPa0=",
+            "BaseHookName": null,
+            "HookCategory": "_Patches"
+          }
+        },
+        {
+          "Type": "Simple",
+          "Hook": {
+            "InjectionIndex": 25,
+            "ReturnBehavior": 1,
+            "ArgumentBehavior": 4,
+            "ArgumentString": "this.local, l0, a0",
+            "HookTypeName": "Simple",
+            "Name": "IOnPlayerChat [internal, server]",
+            "HookName": "IOnPlayerChat",
+            "AssemblyName": "Assembly-CSharp.dll",
+            "TypeName": "Multiplayer.NetGame",
+            "Flagged": true,
+            "Signature": {
+              "Exposure": 2,
+              "Name": "SendChatMessage",
+              "ReturnType": "System.Void",
+              "Parameters": [
+                "System.String"
+              ]
+            },
+            "MSILHash": "bnLzUAYSyZvOX5rJPtBubbJDjt1GW93IbnrFPNdY+D8=",
+            "BaseHookName": null,
+            "HookCategory": "Player"
+          }
+        },
+        {
+          "Type": "Modify",
+          "Hook": {
+            "InjectionIndex": 11,
+            "RemoveCount": 0,
+            "Instructions": [
+              {
+                "OpCode": "call",
+                "OpType": "Method",
+                "Operand": "mscorlib|System.Environment|GetCommandLineArgs"
+              },
+              {
+                "OpCode": "ldstr",
+                "OpType": "String",
+                "Operand": "-dedicated"
+              },
+              {
+                "OpCode": "call",
+                "OpType": "Method",
+                "Operand": "System.Core|System.Linq.Enumerable|Contains[System.String]"
+              },
+              {
+                "OpCode": "brfalse",
+                "OpType": "Instruction",
+                "Operand": 11
+              }
+            ],
+            "HookTypeName": "Modify",
+            "Name": "SkipStartupExperience [patch]",
+            "HookName": "SkipStartupExperience",
+            "AssemblyName": "Assembly-CSharp.dll",
+            "TypeName": "Multiplayer.App",
+            "Flagged": true,
+            "Signature": {
+              "Exposure": 2,
+              "Name": "BeginStartup",
+              "ReturnType": "System.Void",
+              "Parameters": []
+            },
+            "MSILHash": "blfVGrYpx3/m82VBXm90MvZEyCfUISR4R8kKYyhVqs8=",
+            "BaseHookName": "InitLogging [internal]",
+            "HookCategory": "_Patches"
           }
         }
       ],

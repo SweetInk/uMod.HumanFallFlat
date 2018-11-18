@@ -19,11 +19,10 @@ namespace uMod.HumanFallFlat
         /// Called when the player sends a message
         /// </summary>
         /// <param name="netHost"></param>
-        /// <param name="hostId"></param>
         /// <param name="name"></param>
         /// <param name="message"></param>
         [HookMethod("IOnPlayerChat")]
-        private object IOnPlayerChat(NetHost netHost, uint hostId, string name, string message)
+        private object IOnPlayerChat(NetHost netHost, string name, string message)
         {
             if (message.Trim().Length <= 1)
             {
@@ -33,7 +32,7 @@ namespace uMod.HumanFallFlat
             // TODO: Handle split screen players (same NetHost, different NetPlayer)
 
             List<NetPlayer> netPlayers = netHost.players.ToList();
-            NetPlayer netPlayer = netPlayers.First();
+            NetPlayer netPlayer = netPlayers.FirstOrDefault();
             IPlayer player = netPlayer?.IPlayer;
             if (netPlayer == null || player == null)
             {
@@ -100,11 +99,18 @@ namespace uMod.HumanFallFlat
         [HookMethod("IOnPlayerConnected")]
         private void IOnPlayerConnected(NetPlayer netPlayer)
         {
-            // Ignore server player
-            if (netPlayer.isLocalPlayer)
+            if (App.state == AppSate.Startup)
+            {
+                return;
+            }
+
+            // Check if server is intended to be dedicated
+            if (netPlayer.isLocalPlayer && HumanFallFlatExtension.Dedicated)
             {
                 // Remove server player from client list
                 NetGame.instance.clients.Remove(netPlayer.host);
+
+                // Ignore server player
                 return;
             }
 
@@ -150,7 +156,7 @@ namespace uMod.HumanFallFlat
             }
 
             // Override/set server hostname
-            string serverName = $"{SteamFriends.GetPersonaName()}'s uMod Server | {Server.Players}/{Server.MaxPlayers}";
+            string serverName = $"{Server.Name} | {Server.Players}/{Server.MaxPlayers}";
             SteamMatchmaking.SetLobbyData((NetGame.instance.transport as NetTransportSteam).lobbyID, "name", serverName);
         }
 
@@ -161,16 +167,22 @@ namespace uMod.HumanFallFlat
         [HookMethod("IOnPlayerDisconnected")]
         private void IOnPlayerDisconnected(NetHost netHost)
         {
+            if (App.state == AppSate.Startup)
+            {
+                return;
+            }
+
             List<NetPlayer> netPlayers = netHost.players.ToList();
-            NetPlayer netPlayer = netPlayers.First();
+            NetPlayer netPlayer = netPlayers.FirstOrDefault();
             if (netPlayer == null)
             {
                 return;
             }
 
-            // Ignore server player
-            if (netPlayer.isLocalPlayer)
+            // Check if server is intended to be dedicated
+            if (netPlayer.isLocalPlayer && HumanFallFlatExtension.Dedicated)
             {
+                // Ignore server player
                 return;
             }
 
@@ -188,7 +200,7 @@ namespace uMod.HumanFallFlat
             }
 
             // Override/set server hostname
-            string serverName = $"{SteamFriends.GetPersonaName()}'s uMod Server | {Server.Players}/{Server.MaxPlayers}";
+            string serverName = $"{Server.Name} | {Server.Players}/{Server.MaxPlayers}";
             SteamMatchmaking.SetLobbyData((NetGame.instance.transport as NetTransportSteam).lobbyID, "name", serverName);
         }
 
