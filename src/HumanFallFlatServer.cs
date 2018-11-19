@@ -194,7 +194,7 @@ namespace uMod.HumanFallFlat
         public void Broadcast(string message, string prefix, params object[] args)
         {
             message = args.Length > 0 ? string.Format(Formatter.ToUnity(message), args) : Formatter.ToUnity(message);
-            if (!HumanFallFlatExtension.Dedicated)
+            if (!HumanFallFlatExtension.Dedicated && NetGame.instance.server.isLocal)
             {
                 NetChat.OnReceive(NetGame.instance.local.hostId, prefix, message);
             }

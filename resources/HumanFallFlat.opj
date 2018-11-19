@@ -1479,6 +1479,75 @@
             "Parameters": []
           },
           "MSILHash": ""
+        },
+        {
+          "Name": "Multiplayer.NetPlayer::SetupBodies",
+          "AssemblyName": "Assembly-CSharp.dll",
+          "TypeName": "Multiplayer.NetPlayer",
+          "Type": 1,
+          "TargetExposure": [
+            2
+          ],
+          "Flagged": false,
+          "Signature": {
+            "Exposure": [
+              0
+            ],
+            "Name": "SetupBodies",
+            "FullTypeName": "System.Void",
+            "Parameters": []
+          },
+          "MSILHash": "ZlgOR/g39BTsBx69ujwNSePRlJObALKHASUWpBYFry4="
+        },
+        {
+          "Name": "Multiplayer.NetPlayer::RegisterBody",
+          "AssemblyName": "Assembly-CSharp.dll",
+          "TypeName": "Multiplayer.NetPlayer",
+          "Type": 1,
+          "TargetExposure": [
+            2
+          ],
+          "Flagged": false,
+          "Signature": {
+            "Exposure": [
+              0
+            ],
+            "Name": "RegisterBody",
+            "FullTypeName": "System.Void",
+            "Parameters": [
+              "HumanSegment",
+              "HumanSegment",
+              "System.Boolean",
+              "System.Boolean",
+              "System.Int32"
+            ]
+          },
+          "MSILHash": "EVmUoA3bZhirrGhVshR3NzEfgiHXDakmiS6OGvvUPP8="
+        },
+        {
+          "Name": "Multiplayer.NetGame::AddServerPlayer",
+          "AssemblyName": "Assembly-CSharp.dll",
+          "TypeName": "Multiplayer.NetGame",
+          "Type": 1,
+          "TargetExposure": [
+            2
+          ],
+          "Flagged": false,
+          "Signature": {
+            "Exposure": [
+              0
+            ],
+            "Name": "AddServerPlayer",
+            "FullTypeName": "Multiplayer.NetPlayer",
+            "Parameters": [
+              "Multiplayer.NetHost",
+              "System.Boolean",
+              "System.String",
+              "System.UInt32",
+              "System.Byte[]"
+            ]
+          },
+          "MSILHash": "h2QE2y8QYTMOJfpBoHdE7qP8ze7X5stTU7dhekzBOuI="
         }
       ],
       "Fields": [
