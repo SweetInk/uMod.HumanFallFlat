@@ -417,8 +417,28 @@
           "Type": "Modify",
           "Hook": {
             "InjectionIndex": 0,
-            "RemoveCount": 61,
+            "RemoveCount": 0,
             "Instructions": [
+              {
+                "OpCode": "call",
+                "OpType": "Method",
+                "Operand": "mscorlib|System.Environment|GetCommandLineArgs"
+              },
+              {
+                "OpCode": "ldstr",
+                "OpType": "String",
+                "Operand": "-dedicated"
+              },
+              {
+                "OpCode": "call",
+                "OpType": "Method",
+                "Operand": "System.Core|System.Linq.Enumerable|Contains[System.String]"
+              },
+              {
+                "OpCode": "brtrue_s",
+                "OpType": "Instruction",
+                "Operand": 0
+              },
               {
                 "OpCode": "ldarg_0",
                 "OpType": "None",
@@ -443,6 +463,11 @@
                 "OpCode": "call",
                 "OpType": "Method",
                 "Operand": "UnityEngine.CoreModule|UnityEngine.Debug|Log"
+              },
+              {
+                "OpCode": "ble_un",
+                "OpType": "Instruction",
+                "Operand": 61
               }
             ],
             "HookTypeName": "Modify",
@@ -828,7 +853,7 @@
             "HookName": "SendShellToDebug",
             "AssemblyName": "Assembly-CSharp.dll",
             "TypeName": "Shell",
-            "Flagged": true,
+            "Flagged": false,
             "Signature": {
               "Exposure": 2,
               "Name": "Print",
@@ -989,9 +1014,9 @@
                 "Operand": "System.Core|System.Linq.Enumerable|Contains[System.String]"
               },
               {
-                "OpCode": "brtrue",
+                "OpCode": "brtrue_s",
                 "OpType": "Instruction",
-                "Operand": 51
+                "Operand": 26
               }
             ],
             "HookTypeName": "Modify",
@@ -999,7 +1024,7 @@
             "HookName": "RemoveServerPlayerOnList",
             "AssemblyName": "Assembly-CSharp.dll",
             "TypeName": "Multiplayer.NetChat",
-            "Flagged": true,
+            "Flagged": false,
             "Signature": {
               "Exposure": 0,
               "Name": "OnList",
@@ -1033,9 +1058,9 @@
                 "Operand": "System.Core|System.Linq.Enumerable|Contains[System.String]"
               },
               {
-                "OpCode": "brtrue",
+                "OpCode": "brfalse_s",
                 "OpType": "Instruction",
-                "Operand": 0
+                "Operand": 36
               }
             ],
             "HookTypeName": "Modify",
@@ -1043,7 +1068,7 @@
             "HookName": "RemoveHostFromClients",
             "AssemblyName": "Assembly-CSharp.dll",
             "TypeName": "Multiplayer.NetChat",
-            "Flagged": true,
+            "Flagged": false,
             "Signature": {
               "Exposure": 0,
               "Name": "GetClient",
@@ -1060,7 +1085,7 @@
         {
           "Type": "Modify",
           "Hook": {
-            "InjectionIndex": 40,
+            "InjectionIndex": 41,
             "RemoveCount": 1,
             "Instructions": [
               {
@@ -1074,7 +1099,7 @@
             "HookName": "RemoveHostFromClients",
             "AssemblyName": "Assembly-CSharp.dll",
             "TypeName": "Multiplayer.NetChat",
-            "Flagged": true,
+            "Flagged": false,
             "Signature": {
               "Exposure": 0,
               "Name": "GetClient",
@@ -1249,9 +1274,9 @@
                 "Operand": "System.Core|System.Linq.Enumerable|Contains[System.String]"
               },
               {
-                "OpCode": "brfalse",
+                "OpCode": "brtrue_s",
                 "OpType": "Instruction",
-                "Operand": 11
+                "Operand": 13
               }
             ],
             "HookTypeName": "Modify",
@@ -1259,7 +1284,7 @@
             "HookName": "SkipStartupExperience",
             "AssemblyName": "Assembly-CSharp.dll",
             "TypeName": "Multiplayer.App",
-            "Flagged": true,
+            "Flagged": false,
             "Signature": {
               "Exposure": 2,
               "Name": "BeginStartup",

@@ -175,12 +175,6 @@ namespace uMod.HumanFallFlat
             // Check if server is intended to be dedicated
             if (Dedicated)
             {
-                if (StartupExperienceUI.instance != null)
-                {
-                    // Remove startup experience UI
-                    UnityEngine.Object.Destroy(StartupExperienceUI.instance.gameObject);
-                }
-
                 // Limit FPS to reduce CPU usage
                 Application.targetFrameRate = FpsLimit;
 
