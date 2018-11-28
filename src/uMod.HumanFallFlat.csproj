@@ -36,7 +36,7 @@
     <PackageReference Include="uMod" Version="3.0.3896-develop" />
     <!--<PackageReference Include="uMod.MySql" Version="3.0.*" />
     <PackageReference Include="uMod.SQLite" Version="3.0.*" />-->
-    <PackageReference Include="uMod.Unity" Version="3.0.3764-develop" />
+    <PackageReference Include="uMod.Unity" Version="3.0.3765-develop" />
     <Reference Include="Assembly-CSharp">
       <HintPath>Dependencies\Patched\$(ManagedDir)\Assembly-CSharp.dll</HintPath>
     </Reference>
