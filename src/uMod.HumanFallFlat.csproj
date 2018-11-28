@@ -7,7 +7,7 @@
     <Authors>The uMod Project Team and Contributors</Authors>
     <Description>Human Fall Flat extension for the uMod modding framework</Description>
     <RepositoryUrl>https://github.com/theumod/uMod.HumanFallFlat</RepositoryUrl>
-    <PackageLicenseUrl>https://github.com/theumod/uMod.HumanFallFlat/blob/develop/LICENSE</PackageLicenseUrl>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageProjectUrl>https://github.com/theumod/uMod.HumanFallFlat</PackageProjectUrl>
     <PackageIconUrl>https://assets.umod.org/images/umod-64.png</PackageIconUrl>
     <Copyright>Copyright (c) 2013-$([System.DateTime]::Now.Year) $(Authors)</Copyright>
@@ -33,7 +33,7 @@
     <PackageReference Include="Oxide.References" Version="2.0.*">
       <PrivateAssets>contentfiles;analyzers;build</PrivateAssets>
     </PackageReference>
-    <PackageReference Include="uMod" Version="3.0.3896-develop" />
+    <PackageReference Include="uMod" Version="3.0.3898-develop" />
     <!--<PackageReference Include="uMod.MySql" Version="3.0.*" />
     <PackageReference Include="uMod.SQLite" Version="3.0.*" />-->
     <PackageReference Include="uMod.Unity" Version="3.0.3765-develop" />
@@ -47,13 +47,13 @@
       <HintPath>Dependencies\Patched\$(ManagedDir)\HumanAPI.dll</HintPath>
     </Reference>
     <Reference Include="mscorlib">
-      <HintPath>Dependencies\Patched\$(ManagedDir)\mscorlib.dll</HintPath>
+      <HintPath>Dependencies\Base\mscorlib.dll</HintPath>
     </Reference>
     <Reference Include="System">
-      <HintPath>Dependencies\Patched\$(ManagedDir)\System.dll</HintPath>
+      <HintPath>Dependencies\Base\System.dll</HintPath>
     </Reference>
     <Reference Include="System.Core">
-      <HintPath>Dependencies\Patched\$(ManagedDir)\System.Core.dll</HintPath>
+      <HintPath>Dependencies\Base\System.Core.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine">
       <HintPath>Dependencies\Patched\$(ManagedDir)\UnityEngine.dll</HintPath>
