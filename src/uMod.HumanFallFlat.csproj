@@ -87,7 +87,7 @@
   </Target>
   <Target Name="AfterBuild">
     <ItemGroup>
-      <CoreFiles Include="$(TargetDir)\uMod*.dll" />
+      <CoreFiles Include="$(TargetDir)\uMod*.dll; $(TargetDir)\Oxide.*.dll" />
       <PatchedFiles Include="$(ProjectDir)\Dependencies\Base\*.dll" />
       <PatchedFiles Include="$(ProjectDir)\Dependencies\Patched\$(ManagedDir)\Assembly-CSharp.dll" />
       <ContentFiles Include="$(SolutionDir)\packages\oxide.references\**\lib\any\net35\*.*" />
