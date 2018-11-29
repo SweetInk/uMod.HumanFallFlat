@@ -99,10 +99,10 @@ namespace uMod.HumanFallFlat
         [HookMethod("IOnPlayerConnected")]
         private void IOnPlayerConnected(NetPlayer netPlayer)
         {
-            if (App.state == AppSate.Startup)
+            /*if (App.state != AppSate.Startup)
             {
                 return;
-            }
+            }*/
 
             // Check if server is intended to be dedicated
             if (netPlayer.isLocalPlayer && HumanFallFlatExtension.Dedicated)
@@ -167,10 +167,10 @@ namespace uMod.HumanFallFlat
         [HookMethod("IOnPlayerDisconnected")]
         private void IOnPlayerDisconnected(NetHost netHost)
         {
-            if (App.state == AppSate.Startup)
+            /*if (App.state == AppSate.Startup)
             {
                 return;
-            }
+            }*/
 
             List<NetPlayer> netPlayers = netHost.players.ToList();
             NetPlayer netPlayer = netPlayers.FirstOrDefault();

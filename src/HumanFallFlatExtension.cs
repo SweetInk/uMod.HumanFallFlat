@@ -151,30 +151,30 @@ namespace uMod.HumanFallFlat
             // Override log message handling
             Application.logMessageReceived += HandleLog;
 
-            // Liten for server console input, if enabled
-            if (Interface.uMod.EnableConsole())
-            {
-                Interface.uMod.ServerConsole.Title = () => ServerName;
-                Interface.uMod.ServerConsole.Input += ServerConsoleOnInput;
-                Interface.uMod.ServerConsole.Completion = input =>
-                {
-                    input = input.Trim().TrimStart('/');
-                    if (!string.IsNullOrEmpty(input))
-                    {
-                        // TODO: Handle other 3 dictionaries where commands may be stored
-                        //Shell.commands.commands
-                        //NetChat.clientCommands.commands
-                        //NetChat.serverCommands.commandsStr
-                        return NetChat.serverCommands.commands.Where(c => c.Key.Contains(input.ToLower())).ToList().ConvertAll(c => c.Key).OrderBy(c => c).ToArray();
-                    }
-
-                    return null;
-                };
-            }
-
             // Check if server is intended to be dedicated
             if (Dedicated)
             {
+                // Listen for server console input, if enabled
+                if (Interface.uMod.EnableConsole())
+                {
+                    Interface.uMod.ServerConsole.Title = () => ServerName;
+                    Interface.uMod.ServerConsole.Input += ServerConsoleOnInput;
+                    Interface.uMod.ServerConsole.Completion = input =>
+                    {
+                        input = input.Trim().TrimStart('/');
+                        if (!string.IsNullOrEmpty(input))
+                        {
+                            // TODO: Handle other 3 dictionaries where commands may be stored
+                            //Shell.commands.commands
+                            //NetChat.clientCommands.commands
+                            //NetChat.serverCommands.commandsStr
+                            return NetChat.serverCommands.commands.Where(c => c.Key.Contains(input.ToLower())).ToList().ConvertAll(c => c.Key).OrderBy(c => c).ToArray();
+                        }
+
+                        return null;
+                    };
+                }
+
                 // Limit FPS to reduce CPU usage
                 Application.targetFrameRate = FpsLimit;
 
@@ -201,6 +201,38 @@ namespace uMod.HumanFallFlat
         {
             if (!string.IsNullOrEmpty(message) && !Filter.Any(message.StartsWith))
             {
+#if DEBUG
+                Interface.uMod.LogDebug("Game state: " + AppSate.Startup);
+#endif
+                if (!Dedicated)
+                {
+                    switch (logType)
+                    {
+                        case LogType.Error:
+                        case LogType.Assert:
+                        case LogType.Exception:
+                            {
+                                Shell.Print(string.Concat("<#FF0000>", message, "</color>"));
+                                Shell.Print(string.Concat("<#FF7F7F>", stackTrace, "</color>"));
+                                break;
+                            }
+                        case LogType.Warning:
+                            {
+                                Shell.Print(string.Concat("<#FFFF00>", message, "</color>"));
+                                break;
+                            }
+                        case LogType.Log:
+                            {
+                                Shell.Print(message);
+                                break;
+                            }
+                        default:
+                            {
+                                goto case LogType.Log;
+                            }
+                    }
+                }
+
                 Interface.uMod.RootLogger.HandleMessage(message, stackTrace, logType.ToLogType());
             }
         }
