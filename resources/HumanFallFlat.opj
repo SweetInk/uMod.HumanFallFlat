@@ -379,7 +379,7 @@
                 "Operand": "System.Core|System.Linq.Enumerable|Contains[System.String]"
               },
               {
-                "OpCode": "brtrue_s",
+                "OpCode": "brfalse_s",
                 "OpType": "Instruction",
                 "Operand": 0
               },
@@ -409,9 +409,9 @@
                 "Operand": "UnityEngine.CoreModule|UnityEngine.Debug|Log"
               },
               {
-                "OpCode": "ble_un",
-                "OpType": "Instruction",
-                "Operand": 22
+                "OpCode": "ret",
+                "OpType": "None",
+                "Operand": null
               }
             ],
             "HookTypeName": "Modify",
@@ -419,7 +419,7 @@
             "HookName": "SendChatPrintToDebug",
             "AssemblyName": "Assembly-CSharp.dll",
             "TypeName": "Multiplayer.NetChat",
-            "Flagged": true,
+            "Flagged": false,
             "Signature": {
               "Exposure": 2,
               "Name": "Print",
@@ -816,7 +816,7 @@
           "Type": "Modify",
           "Hook": {
             "InjectionIndex": 7,
-            "RemoveCount": 6,
+            "RemoveCount": 2,
             "Instructions": [
               {
                 "OpCode": "ldfld",
@@ -824,14 +824,9 @@
                 "Operand": "Assembly-CSharp|Multiplayer.NetHost|isLocal"
               },
               {
-                "OpCode": "brfalse_s",
+                "OpCode": "brfalse",
                 "OpType": "Instruction",
-                "Operand": 14
-              },
-              {
-                "OpCode": "ldarg_2",
-                "OpType": "None",
-                "Operand": null
+                "Operand": 29
               }
             ],
             "HookTypeName": "Modify",
@@ -839,7 +834,7 @@
             "HookName": "ServerChatOnlyOnReceive",
             "AssemblyName": "Assembly-CSharp.dll",
             "TypeName": "Multiplayer.NetChat",
-            "Flagged": true,
+            "Flagged": false,
             "Signature": {
               "Exposure": 2,
               "Name": "OnReceive",
@@ -985,7 +980,7 @@
           "Type": "Modify",
           "Hook": {
             "InjectionIndex": 30,
-            "RemoveCount": 0,
+            "RemoveCount": 3,
             "Instructions": [
               {
                 "OpCode": "call",
@@ -1044,7 +1039,7 @@
             "HookName": "RemoveHostFromClients",
             "AssemblyName": "Assembly-CSharp.dll",
             "TypeName": "Multiplayer.NetChat",
-            "Flagged": true,
+            "Flagged": false,
             "Signature": {
               "Exposure": 0,
               "Name": "GetClient",
@@ -1055,29 +1050,6 @@
             },
             "MSILHash": "PNEomDMqgnFTJWowYZxrEks+wDHNrMcNL5Hh/2glv6k=",
             "BaseHookName": "RemoveHostFromClients [patch 1]",
-            "HookCategory": "_Patches"
-          }
-        },
-        {
-          "Type": "Modify",
-          "Hook": {
-            "InjectionIndex": 13,
-            "RemoveCount": 1,
-            "Instructions": [],
-            "HookTypeName": "Modify",
-            "Name": "RemoveHelpPrintOnStart [patch]",
-            "HookName": "RemoveHelpPrintOnStart",
-            "AssemblyName": "Assembly-CSharp.dll",
-            "TypeName": "Multiplayer.App",
-            "Flagged": true,
-            "Signature": {
-              "Exposure": 2,
-              "Name": "OnHostGameSuccess",
-              "ReturnType": "System.Void",
-              "Parameters": []
-            },
-            "MSILHash": "ZMo5ogB4EgQfYDgLNSp/d2k/X6xxFMGBSVDpJGeAKI4=",
-            "BaseHookName": null,
             "HookCategory": "_Patches"
           }
         },
@@ -1303,6 +1275,29 @@
             },
             "MSILHash": "0u7Na6xkbdKvaT99ABuwOrZz6nw4xr3M5KWmwb2mjSw=",
             "BaseHookName": "ListLobbiesWorldwide [patch]",
+            "HookCategory": "_Patches"
+          }
+        },
+        {
+          "Type": "Modify",
+          "Hook": {
+            "InjectionIndex": 0,
+            "RemoveCount": 1,
+            "Instructions": [],
+            "HookTypeName": "Modify",
+            "Name": "RemoveHelpPrintOnStart [patch]",
+            "HookName": "RemoveHelpPrintOnStart",
+            "AssemblyName": "Assembly-CSharp.dll",
+            "TypeName": "Multiplayer.App",
+            "Flagged": false,
+            "Signature": {
+              "Exposure": 0,
+              "Name": "<OnHostGameSuccess>m__0",
+              "ReturnType": "System.Void",
+              "Parameters": []
+            },
+            "MSILHash": "wKZgfTd8VVQrhRIBlxoFdHzpSqwMlEJWFpuVz6y3zuI=",
+            "BaseHookName": null,
             "HookCategory": "_Patches"
           }
         }
