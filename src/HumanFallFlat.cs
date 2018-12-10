@@ -1,4 +1,4 @@
-﻿using Multiplayer;
+using Multiplayer;
 using Steamworks;
 using System.Collections.Generic;
 using uMod.Libraries;
@@ -103,26 +103,22 @@ namespace uMod.HumanFallFlat
 
                 NetTransportSteam transport = NetGame.instance.transport as NetTransportSteam;
 
-                // Check if server is intended to be dedicated
-                if (HumanFallFlatExtension.Dedicated)
-                {
-                    // Make server public/open
-                    NetGame.friendly = HumanFallFlatExtension.FriendsOnly;
-                    Options.lobbyInviteOnly = HumanFallFlatExtension.InviteOnly ? 1 : 0;
-                    transport?.SetJoinable(HumanFallFlatExtension.InviteOnly);
-                    transport?.UpdateLobbyType();
+                // Make server public/open
+                NetGame.friendly = HumanFallFlatExtension.FriendsOnly;
+                Options.lobbyInviteOnly = HumanFallFlatExtension.InviteOnly ? 1 : 0;
+                transport?.SetJoinable(HumanFallFlatExtension.InviteOnly);
+                transport?.UpdateLobbyType();
 
-                    // Allow join in progress
-                    Options.lobbyJoinInProgress = HumanFallFlatExtension.JoinInProgress ? 1 : 0;
+                // Set/override max players
+                Options.lobbyMaxPlayers = HumanFallFlatExtension.MaxPlayers;
+                transport?.UpdateLobbyPlayers();
+                App.instance.OnClientCountChanged();
 
-                    // Set/override max players
-                    Options.lobbyMaxPlayers = HumanFallFlatExtension.MaxPlayers;
-                    transport?.UpdateLobbyPlayers();
-                    App.instance.OnClientCountChanged();
+                // Allow join in progress
+                Options.lobbyJoinInProgress = HumanFallFlatExtension.JoinInProgress ? 1 : 0;
 
-                    // Use cheat mode to enable/disable some stuff
-                    CheatCodes.cheatMode = true;
-                }
+                // Use cheat mode to enable/disable some stuff
+                CheatCodes.cheatMode = true;
 
                 if (transport != null)
                 {

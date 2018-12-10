@@ -98,7 +98,7 @@ namespace uMod.HumanFallFlat
         /// <summary>
         /// Returns if the player is connected
         /// </summary>
-        public bool IsConnected => NetGame.instance.clients.Contains(netPlayer.host);
+        public bool IsConnected => NetGame.instance.allclients.Contains(netPlayer.host);
 
         /// <summary>
         /// Returns if the player is sleeping

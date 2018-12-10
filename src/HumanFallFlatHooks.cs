@@ -108,7 +108,7 @@ namespace uMod.HumanFallFlat
             if (netPlayer.isLocalPlayer && HumanFallFlatExtension.Dedicated)
             {
                 // Remove server player from client list
-                NetGame.instance.clients.Remove(netPlayer.host);
+                NetGame.instance.allclients.Remove(netPlayer.host);
 
                 // Ignore server player
                 return;

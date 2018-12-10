@@ -31,7 +31,7 @@
                 "System.Byte[]"
               ]
             },
-            "MSILHash": "lEQUjTU6PRKBu8Y6ZxcJG+QO7ikfIRfRvUx3B+1LwNo=",
+            "MSILHash": "2En1hvjfBIBK2XHQi8DJeb06KWPmk+7sX7hHvg8F880=",
             "BaseHookName": null,
             "HookCategory": null
           }
@@ -39,7 +39,7 @@
         {
           "Type": "Simple",
           "Hook": {
-            "InjectionIndex": 17,
+            "InjectionIndex": 36,
             "ReturnBehavior": 0,
             "ArgumentBehavior": 4,
             "ArgumentString": "l0",
@@ -61,7 +61,7 @@
                 "System.Byte[]"
               ]
             },
-            "MSILHash": "h2QE2y8QYTMOJfpBoHdE7qP8ze7X5stTU7dhekzBOuI=",
+            "MSILHash": "ZlEO2EZokVc5K+4aZV+QDGqQGubahzlaaPHjudo5ZhM=",
             "BaseHookName": null,
             "HookCategory": "Player"
           }
@@ -88,7 +88,7 @@
                 "Multiplayer.NetStream"
               ]
             },
-            "MSILHash": "DrdZRuZFsvCkQszkYEHOU4RsuCbtthUnoaWzm3DSimc=",
+            "MSILHash": "wyECtMPk90tnSbsCKHPwMilBTHcpplTOwxUrTUt2YFw=",
             "BaseHookName": null,
             "HookCategory": "Player"
           }
@@ -217,7 +217,7 @@
               {
                 "OpCode": "brtrue",
                 "OpType": "Instruction",
-                "Operand": 315
+                "Operand": 291
               }
             ],
             "HookTypeName": "Modify",
@@ -241,7 +241,7 @@
                 "System.Boolean&"
               ]
             },
-            "MSILHash": "7CfcJRIOGYeVfncjjcOvYZw9+J2GSz/203tBt1dAJk0=",
+            "MSILHash": "0iOtO5mlQN9Ah7dp1tF/lE8jmglWrThTm/OalSPwelo=",
             "BaseHookName": null,
             "HookCategory": "_Patches"
           }
@@ -337,62 +337,6 @@
         {
           "Type": "Modify",
           "Hook": {
-            "InjectionIndex": 0,
-            "RemoveCount": 0,
-            "Instructions": [
-              {
-                "OpCode": "call",
-                "OpType": "Method",
-                "Operand": "mscorlib|System.Environment|GetCommandLineArgs"
-              },
-              {
-                "OpCode": "ldstr",
-                "OpType": "String",
-                "Operand": "-dedicated"
-              },
-              {
-                "OpCode": "call",
-                "OpType": "Method",
-                "Operand": "System.Core|System.Linq.Enumerable|Contains[System.String]"
-              },
-              {
-                "OpCode": "brfalse",
-                "OpType": "Instruction",
-                "Operand": 0
-              },
-              {
-                "OpCode": "ldc_i4_1",
-                "OpType": "None",
-                "Operand": null
-              },
-              {
-                "OpCode": "ret",
-                "OpType": "None",
-                "Operand": null
-              }
-            ],
-            "HookTypeName": "Modify",
-            "Name": "DisableJoinHeldOnDevice [patch]",
-            "HookName": "DisableJoinHeldOnDevice",
-            "AssemblyName": "Assembly-CSharp.dll",
-            "TypeName": "PlayerManager",
-            "Flagged": false,
-            "Signature": {
-              "Exposure": 0,
-              "Name": "JoinHeldOnDevice",
-              "ReturnType": "System.Boolean",
-              "Parameters": [
-                "InControl.InputDevice"
-              ]
-            },
-            "MSILHash": "X1GGwn5MgW4408sDwjANw5hfj49fAnbGPIz81C2P5Zg=",
-            "BaseHookName": null,
-            "HookCategory": "_Patches"
-          }
-        },
-        {
-          "Type": "Modify",
-          "Hook": {
             "InjectionIndex": 2,
             "RemoveCount": 4,
             "Instructions": [],
@@ -467,7 +411,7 @@
               {
                 "OpCode": "ble_un",
                 "OpType": "Instruction",
-                "Operand": 61
+                "Operand": 22
               }
             ],
             "HookTypeName": "Modify",
@@ -484,7 +428,7 @@
                 "System.String"
               ]
             },
-            "MSILHash": "jZJyPSTdwkSJhc9dytArrTralqGeyGnv4I/9ozCjmtc=",
+            "MSILHash": "Hc3DmUZhTlojGv3Puc2bThcamyHMbVZSIulkSubMEtI=",
             "BaseHookName": null,
             "HookCategory": "_Patches"
           }
@@ -508,7 +452,7 @@
               "ReturnType": "System.Void",
               "Parameters": []
             },
-            "MSILHash": "60fE4NPHPT5Gt2NN3LhfJGpaJkeotYtYomM5NpSwC+c=",
+            "MSILHash": "W+gUTLtMEN8Z3wFH5KRX292m3RWqIn8RWBqJju7OAiU=",
             "BaseHookName": null,
             "HookCategory": "Server"
           }
@@ -516,7 +460,7 @@
         {
           "Type": "Simple",
           "Hook": {
-            "InjectionIndex": 33,
+            "InjectionIndex": 41,
             "ReturnBehavior": 0,
             "ArgumentBehavior": 0,
             "ArgumentString": null,
@@ -527,14 +471,14 @@
             "TypeName": "Multiplayer.NetTransportSteam",
             "Flagged": false,
             "Signature": {
-              "Exposure": 0,
+              "Exposure": 2,
               "Name": "OnLobbyCreated",
               "ReturnType": "System.Void",
               "Parameters": [
                 "Steamworks.LobbyCreated_t"
               ]
             },
-            "MSILHash": "uaL2BUH06+GT8xdMTNjEXvZ+E1Nt9h3uNJLg2wpqCag=",
+            "MSILHash": "3d5Q8wuAAko7PWLiZg0n7jjQSxy5qbHYyiN42HeaQnU=",
             "BaseHookName": null,
             "HookCategory": "Server"
           }
@@ -542,7 +486,7 @@
         {
           "Type": "InitMod",
           "Hook": {
-            "InjectionIndex": 5,
+            "InjectionIndex": 6,
             "HookTypeName": "Initialize uMod",
             "Name": "InitMod [internal]",
             "HookName": "InitMod",
@@ -555,7 +499,7 @@
               "ReturnType": "System.Void",
               "Parameters": []
             },
-            "MSILHash": "blfVGrYpx3/m82VBXm90MvZEyCfUISR4R8kKYyhVqs8=",
+            "MSILHash": "hxWqYFao2nXic53qxxl1RoPwmT1AkvDWyFfil9FkUGc=",
             "BaseHookName": null,
             "HookCategory": "Server"
           }
@@ -563,7 +507,7 @@
         {
           "Type": "Simple",
           "Hook": {
-            "InjectionIndex": 6,
+            "InjectionIndex": 7,
             "ReturnBehavior": 0,
             "ArgumentBehavior": 0,
             "ArgumentString": null,
@@ -579,7 +523,7 @@
               "ReturnType": "System.Void",
               "Parameters": []
             },
-            "MSILHash": "blfVGrYpx3/m82VBXm90MvZEyCfUISR4R8kKYyhVqs8=",
+            "MSILHash": "hxWqYFao2nXic53qxxl1RoPwmT1AkvDWyFfil9FkUGc=",
             "BaseHookName": "InitMod [internal]",
             "HookCategory": "Server"
           }
@@ -605,7 +549,7 @@
                 "System.Object"
               ]
             },
-            "MSILHash": "2gGMEmva1YI65BwzZLf0jPl2bYwh+J8JtFHKqM2Alsc=",
+            "MSILHash": "KGlTYR5ACF6q1TJT5GGRPWTfS3b2kS3KncvuTBNQpHE=",
             "BaseHookName": null,
             "HookCategory": null
           }
@@ -628,10 +572,11 @@
               "Name": "OnDisconnect",
               "ReturnType": "System.Void",
               "Parameters": [
-                "System.Object"
+                "System.Object",
+                "System.Boolean"
               ]
             },
-            "MSILHash": "NMX+6F4O/rZUXzBBGn1A7G+Fy3e7YLrd64ujrYiFDuM=",
+            "MSILHash": "rqf78dc3dv4FZ4s+ovLfQR3q7TC8pe/F6gxY1z78pT0=",
             "BaseHookName": null,
             "HookCategory": "Player"
           }
@@ -658,7 +603,7 @@
                 "Multiplayer.NetStream"
               ]
             },
-            "MSILHash": "POAJRLVtf14vlv4zaCvybYSfIi8zUJ+191002d34V9E=",
+            "MSILHash": "XwpOkpmF3iQG8Lc2fRYrtD+U981fzI91Ar+ZziqnAJk=",
             "BaseHookName": null,
             "HookCategory": null
           }
@@ -905,7 +850,7 @@
                 "System.String"
               ]
             },
-            "MSILHash": "5/a0WctRZl5RIw81ACWdNzW72HkvRT5jvtz/Gzd6I8s=",
+            "MSILHash": "csBNc9r4NADczQ2UGeU8TdABlEpiKYRxTg/V5PYWj4Y=",
             "BaseHookName": null,
             "HookCategory": "_Patches"
           }
@@ -939,7 +884,7 @@
         {
           "Type": "Modify",
           "Hook": {
-            "InjectionIndex": 70,
+            "InjectionIndex": 76,
             "RemoveCount": 2,
             "Instructions": [
               {
@@ -960,7 +905,7 @@
               {
                 "OpCode": "brtrue",
                 "OpType": "Instruction",
-                "Operand": 72
+                "Operand": 78
               },
               {
                 "OpCode": "ldarg_0",
@@ -987,7 +932,7 @@
                 "System.String"
               ]
             },
-            "MSILHash": "iOJ2faWcTqcqL2DG87EfJRq8aGIa9kIiw7Z8VGhVz00=",
+            "MSILHash": "fDISko1Uanp0DWsJKn/M0cJBgQlPShewM/wsm7duwaY=",
             "BaseHookName": null,
             "HookCategory": "_Patches"
           }
@@ -1031,7 +976,7 @@
               "ReturnType": "System.Void",
               "Parameters": []
             },
-            "MSILHash": "5ezDLwWVpjNTksJ62hGm3f0Dk9czwucfW5fdEVRjpgg=",
+            "MSILHash": "r/r1Ie/H4h7M/EoMSIC33wVa5YrdZMmX6b0a6ObBzNg=",
             "BaseHookName": null,
             "HookCategory": "_Patches"
           }
@@ -1077,7 +1022,7 @@
                 "System.String"
               ]
             },
-            "MSILHash": "e9DqCmLaXKKXrvsj28hN0AOWRrYbHVn4hBAay38qkPA=",
+            "MSILHash": "PNEomDMqgnFTJWowYZxrEks+wDHNrMcNL5Hh/2glv6k=",
             "BaseHookName": null,
             "HookCategory": "_Patches"
           }
@@ -1099,7 +1044,7 @@
             "HookName": "RemoveHostFromClients",
             "AssemblyName": "Assembly-CSharp.dll",
             "TypeName": "Multiplayer.NetChat",
-            "Flagged": false,
+            "Flagged": true,
             "Signature": {
               "Exposure": 0,
               "Name": "GetClient",
@@ -1108,7 +1053,7 @@
                 "System.String"
               ]
             },
-            "MSILHash": "e9DqCmLaXKKXrvsj28hN0AOWRrYbHVn4hBAay38qkPA=",
+            "MSILHash": "PNEomDMqgnFTJWowYZxrEks+wDHNrMcNL5Hh/2glv6k=",
             "BaseHookName": "RemoveHostFromClients [patch 1]",
             "HookCategory": "_Patches"
           }
@@ -1124,14 +1069,14 @@
             "HookName": "RemoveHelpPrintOnStart",
             "AssemblyName": "Assembly-CSharp.dll",
             "TypeName": "Multiplayer.App",
-            "Flagged": false,
+            "Flagged": true,
             "Signature": {
               "Exposure": 2,
               "Name": "OnHostGameSuccess",
               "ReturnType": "System.Void",
               "Parameters": []
             },
-            "MSILHash": "G95TUNwzJ0eVF+HQ1qugBgwGUFwRTjkbUnGsb4KRgiQ=",
+            "MSILHash": "ZMo5ogB4EgQfYDgLNSp/d2k/X6xxFMGBSVDpJGeAKI4=",
             "BaseHookName": null,
             "HookCategory": "_Patches"
           }
@@ -1158,7 +1103,7 @@
                 "Multiplayer.NetStream"
               ]
             },
-            "MSILHash": "pnlLkc0f5xAHdzJroqDPypWM4o2kFB1u6CP95tn3Rzo=",
+            "MSILHash": "r08/LdEt1QgCHI7yX3QKDP+HBoJKyF3o3ydl0GA0+PM=",
             "BaseHookName": null,
             "HookCategory": null
           }
@@ -1218,10 +1163,10 @@
               "Name": "ListLobbies",
               "ReturnType": "System.Void",
               "Parameters": [
-                "System.Action`1<System.Collections.Generic.List`1<Multiplayer.NetTransportSteam/FriendInfo>>"
+                "System.Action`1<System.Collections.Generic.List`1<Multiplayer.NetTransport/ILobbyEntry>>"
               ]
             },
-            "MSILHash": "qYou5N9WWEXiywM0xIpnzFUGdEPX255Ra/w9z3zZPa0=",
+            "MSILHash": "0u7Na6xkbdKvaT99ABuwOrZz6nw4xr3M5KWmwb2mjSw=",
             "BaseHookName": null,
             "HookCategory": "_Patches"
           }
@@ -1247,7 +1192,7 @@
                 "System.String"
               ]
             },
-            "MSILHash": "bnLzUAYSyZvOX5rJPtBubbJDjt1GW93IbnrFPNdY+D8=",
+            "MSILHash": "Ha+A8CgDuD1/sNW8Dn2urCbzlLAmZSME2QG8HUj2/KM=",
             "BaseHookName": null,
             "HookCategory": "Player"
           }
@@ -1255,7 +1200,7 @@
         {
           "Type": "Modify",
           "Hook": {
-            "InjectionIndex": 11,
+            "InjectionIndex": 14,
             "RemoveCount": 0,
             "Instructions": [
               {
@@ -1276,7 +1221,7 @@
               {
                 "OpCode": "brtrue_s",
                 "OpType": "Instruction",
-                "Operand": 13
+                "Operand": 16
               }
             ],
             "HookTypeName": "Modify",
@@ -1291,7 +1236,7 @@
               "ReturnType": "System.Void",
               "Parameters": []
             },
-            "MSILHash": "blfVGrYpx3/m82VBXm90MvZEyCfUISR4R8kKYyhVqs8=",
+            "MSILHash": "hxWqYFao2nXic53qxxl1RoPwmT1AkvDWyFfil9FkUGc=",
             "BaseHookName": "InitLogging [internal]",
             "HookCategory": "_Patches"
           }
@@ -1299,38 +1244,18 @@
         {
           "Type": "Modify",
           "Hook": {
-            "InjectionIndex": 33,
-            "RemoveCount": 0,
+            "InjectionIndex": 44,
+            "RemoveCount": 1,
             "Instructions": [
-              {
-                "OpCode": "ldarg_0",
-                "OpType": "None",
-                "Operand": null
-              },
-              {
-                "OpCode": "ldfld",
-                "OpType": "Field",
-                "Operand": "Assembly-CSharp|MainMenu|workshopButton"
-              },
-              {
-                "OpCode": "callvirt",
-                "OpType": "Method",
-                "Operand": "UnityEngine.CoreModule|UnityEngine.Component|get_gameObject"
-              },
               {
                 "OpCode": "ldc_i4_1",
                 "OpType": "None",
                 "Operand": null
-              },
-              {
-                "OpCode": "callvirt",
-                "OpType": "Method",
-                "Operand": "UnityEngine.CoreModule|UnityEngine.GameObject|SetActive(System.Boolean)"
               }
             ],
             "HookTypeName": "Modify",
-            "Name": "AddWorkshopButton [patch]",
-            "HookName": "AddWorkshopButton",
+            "Name": "EnableWorkshopButton [patch]",
+            "HookName": "EnableWorkshopButton",
             "AssemblyName": "Assembly-CSharp.dll",
             "TypeName": "MainMenu",
             "Flagged": false,
@@ -1340,8 +1265,44 @@
               "ReturnType": "System.Void",
               "Parameters": []
             },
-            "MSILHash": "vqEG4kRz4UeIcfX+TSoLdXi3/nS/Lcxr7I0Xk+P+/CU=",
+            "MSILHash": "Z/nVlr26YOm5ilW9FuVAN+PxB4+vu85PG+uQ9ZrV+8I=",
             "BaseHookName": null,
+            "HookCategory": "_Patches"
+          }
+        },
+        {
+          "Type": "Modify",
+          "Hook": {
+            "InjectionIndex": 67,
+            "RemoveCount": 0,
+            "Instructions": [
+              {
+                "OpCode": "ldc_i4",
+                "OpType": "Int32",
+                "Operand": "100"
+              },
+              {
+                "OpCode": "call",
+                "OpType": "Method",
+                "Operand": "Assembly-CSharp-firstpass|Steamworks.SteamMatchmaking|AddRequestLobbyListResultCountFilter"
+              }
+            ],
+            "HookTypeName": "Modify",
+            "Name": "ListAllLobbies [patch]",
+            "HookName": "ListAllLobbies",
+            "AssemblyName": "Assembly-CSharp.dll",
+            "TypeName": "Multiplayer.NetTransportSteam",
+            "Flagged": false,
+            "Signature": {
+              "Exposure": 2,
+              "Name": "ListLobbies",
+              "ReturnType": "System.Void",
+              "Parameters": [
+                "System.Action`1<System.Collections.Generic.List`1<Multiplayer.NetTransport/ILobbyEntry>>"
+              ]
+            },
+            "MSILHash": "0u7Na6xkbdKvaT99ABuwOrZz6nw4xr3M5KWmwb2mjSw=",
+            "BaseHookName": "ListLobbiesWorldwide [patch]",
             "HookCategory": "_Patches"
           }
         }
@@ -1465,27 +1426,6 @@
           "MSILHash": ""
         },
         {
-          "Name": "Multiplayer.NetGame::FindClient",
-          "AssemblyName": "Assembly-CSharp.dll",
-          "TypeName": "Multiplayer.NetGame",
-          "Type": 1,
-          "TargetExposure": [
-            2
-          ],
-          "Flagged": false,
-          "Signature": {
-            "Exposure": [
-              0
-            ],
-            "Name": "FindClient",
-            "FullTypeName": "Multiplayer.NetHost",
-            "Parameters": [
-              "System.Object"
-            ]
-          },
-          "MSILHash": "B3gHvYpFFT6C/35NkfxbeQePAB4NQa1Fspu8ZNQZ9kU="
-        },
-        {
           "Name": "Shell::commands",
           "AssemblyName": "Assembly-CSharp.dll",
           "TypeName": "Shell",
@@ -1573,6 +1513,48 @@
             ]
           },
           "MSILHash": "h2QE2y8QYTMOJfpBoHdE7qP8ze7X5stTU7dhekzBOuI="
+        },
+        {
+          "Name": "Multiplayer.NetGame::FindReadyClient",
+          "AssemblyName": "Assembly-CSharp.dll",
+          "TypeName": "Multiplayer.NetGame",
+          "Type": 1,
+          "TargetExposure": [
+            2
+          ],
+          "Flagged": false,
+          "Signature": {
+            "Exposure": [
+              0
+            ],
+            "Name": "FindReadyClient",
+            "FullTypeName": "Multiplayer.NetHost",
+            "Parameters": [
+              "System.Object"
+            ]
+          },
+          "MSILHash": "HKMLb+Zkq9tPi6aDy4rIXvd/2IWAZS4QjJZZCOZa/UQ="
+        },
+        {
+          "Name": "Multiplayer.NetGame::FindAnyClient",
+          "AssemblyName": "Assembly-CSharp.dll",
+          "TypeName": "Multiplayer.NetGame",
+          "Type": 1,
+          "TargetExposure": [
+            2
+          ],
+          "Flagged": false,
+          "Signature": {
+            "Exposure": [
+              0
+            ],
+            "Name": "FindAnyClient",
+            "FullTypeName": "Multiplayer.NetHost",
+            "Parameters": [
+              "System.Object"
+            ]
+          },
+          "MSILHash": "5KLsrpO6Y8WRyMDXqfiPnZaxYodMDB7puL0vR2+YstY="
         }
       ],
       "Fields": [
