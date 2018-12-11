@@ -1300,6 +1300,55 @@
             "BaseHookName": null,
             "HookCategory": "_Patches"
           }
+        },
+        {
+          "Type": "Modify",
+          "Hook": {
+            "InjectionIndex": 0,
+            "RemoveCount": 0,
+            "Instructions": [
+              {
+                "OpCode": "ldsfld",
+                "OpType": "Field",
+                "Operand": "Assembly-CSharp|Multiplayer.NetChat|typing"
+              },
+              {
+                "OpCode": "brfalse",
+                "OpType": "Instruction",
+                "Operand": 0
+              },
+              {
+                "OpCode": "ret",
+                "OpType": "None",
+                "Operand": null
+              }
+            ],
+            "HookTypeName": "Modify",
+            "Name": "DisableMoveWhileTyping [patch]",
+            "HookName": "DisableMoveWhileTyping",
+            "AssemblyName": "Assembly-CSharp.dll",
+            "TypeName": "HumanControls",
+            "Flagged": false,
+            "Signature": {
+              "Exposure": 2,
+              "Name": "HandleInput",
+              "ReturnType": "System.Void",
+              "Parameters": [
+                "System.Single",
+                "System.Single",
+                "System.Single",
+                "System.Single",
+                "System.Single",
+                "System.Single",
+                "System.Boolean",
+                "System.Boolean",
+                "System.Boolean"
+              ]
+            },
+            "MSILHash": "R5oBuvYMjH9F8SU1HPuf2VEECLIf7kQa5ZEhwg56y8c=",
+            "BaseHookName": null,
+            "HookCategory": "_Patches"
+          }
         }
       ],
       "Modifiers": [
