@@ -1599,6 +1599,44 @@
             ]
           },
           "MSILHash": "5KLsrpO6Y8WRyMDXqfiPnZaxYodMDB7puL0vR2+YstY="
+        },
+        {
+          "Name": "Game::bundle",
+          "AssemblyName": "Assembly-CSharp.dll",
+          "TypeName": "Game",
+          "Type": 0,
+          "TargetExposure": [
+            2
+          ],
+          "Flagged": false,
+          "Signature": {
+            "Exposure": [
+              0
+            ],
+            "Name": "bundle",
+            "FullTypeName": "UnityEngine.AssetBundle Game::bundle",
+            "Parameters": []
+          },
+          "MSILHash": ""
+        },
+        {
+          "Name": "Game::skyColor",
+          "AssemblyName": "Assembly-CSharp.dll",
+          "TypeName": "Game",
+          "Type": 0,
+          "TargetExposure": [
+            2
+          ],
+          "Flagged": false,
+          "Signature": {
+            "Exposure": [
+              0
+            ],
+            "Name": "skyColor",
+            "FullTypeName": "UnityEngine.Color Game::skyColor",
+            "Parameters": []
+          },
+          "MSILHash": ""
         }
       ],
       "Fields": [
