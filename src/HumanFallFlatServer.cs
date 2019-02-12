@@ -198,7 +198,8 @@ namespace uMod.HumanFallFlat
             {
                 NetChat.OnReceive(NetGame.instance.local.hostId, prefix, message);
             }
-            using (NetStream netStream = NetGame.BeginMessage(NetMsgId.Chat))
+            NetStream netStream = NetGame.BeginMessage(NetMsgId.Chat);
+            try
             {
                 netStream.WriteNetId(NetGame.instance.local.hostId);
                 netStream.Write(prefix ?? string.Empty);
@@ -206,6 +207,13 @@ namespace uMod.HumanFallFlat
                 for (int i = 0; i < NetGame.instance.allclients.Count; i++)
                 {
                     NetGame.instance.SendReliable(NetGame.instance.allclients[i], netStream);
+                }
+            }
+            finally
+            {
+                if (netStream != null)
+                {
+                    netStream.Release();
                 }
             }
         }

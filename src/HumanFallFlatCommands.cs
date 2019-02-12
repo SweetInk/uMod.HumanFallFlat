@@ -45,7 +45,7 @@ namespace uMod.HumanFallFlat
             public readonly CommandCallback Callback;
 
             /// <summary>
-            /// The callback
+            /// The original callback
             /// </summary>
             public Action<string> OriginalCallback;
 
@@ -69,10 +69,10 @@ namespace uMod.HumanFallFlat
         public HumanFallFlatCommands()
         {
             registeredCommands = new Dictionary<string, RegisteredCommand>();
-            commandHandler = new CommandHandler(ChatCommandCallback, registeredCommands.ContainsKey);
+            commandHandler = new CommandHandler(CommandCallback, registeredCommands.ContainsKey);
         }
 
-        private bool ChatCommandCallback(IPlayer caller, string cmd, string[] args)
+        private bool CommandCallback(IPlayer caller, string cmd, string[] args)
         {
             return registeredCommands.TryGetValue(cmd, out RegisteredCommand command) && command.Callback(caller, cmd, args);
         }
@@ -88,10 +88,10 @@ namespace uMod.HumanFallFlat
             // Remove whitespace and convert command to lowercase
             command = command.Trim().ToLowerInvariant();
 
-            // Setup a new universal command
+            // Set up a new universal command
             RegisteredCommand newCommand = new RegisteredCommand(plugin, command, callback);
 
-            // Check if the command can be overridden
+            // Check if command can be overridden
             if (!CanOverrideCommand(command))
             {
                 throw new CommandAlreadyExistsException(command);
@@ -105,13 +105,13 @@ namespace uMod.HumanFallFlat
                     newCommand.OriginalCallback = cmd.OriginalCallback;
                 }
 
-                string previousPluginName = cmd.Source?.Name ?? "an unknown plugin";
-                string newPluginName = plugin?.Name ?? "An unknown plugin";
-                string message = $"{newPluginName} has replaced the '{command}' command previously registered by {previousPluginName}";
+                string previousPluginName = cmd.Source?.Name ?? "an unknown plugin"; // TODO: Localization
+                string newPluginName = plugin?.Name ?? "An unknown plugin"; // TODO: Localization
+                string message = $"{newPluginName} has replaced the '{command}' command previously registered by {previousPluginName}"; // TODO: Localization
                 Interface.uMod.LogWarning(message);
             }
 
-            // Check if command already exists as a vanilla command
+            // Check if command already exists as a native command
             if (NetChat.serverCommands.commandsStr.ContainsKey(command))
             {
                 if (newCommand.OriginalCallback == null)
@@ -122,13 +122,13 @@ namespace uMod.HumanFallFlat
                 NetChat.serverCommands.commandsStr.Remove(command);
                 if (cmd == null)
                 {
-                    string newPluginName = plugin?.Name ?? "An unknown plugin";
-                    string message = $"{newPluginName} has replaced the '{command}' command previously registered by {provider.GameName.Humanize()}";
+                    string newPluginName = plugin?.Name ?? "An unknown plugin"; // TODO: Localization
+                    string message = $"{newPluginName} has replaced the '{command}' command previously registered by {provider.GameName.Humanize()}"; // TODO: Localization
                     Interface.uMod.LogWarning(message);
                 }
             }
 
-            // Register the command as a chat command
+            // Register command
             registeredCommands[command] = newCommand;
             NetChat.serverCommands.RegisterCommand(command, () => { }, null); // TODO: Handle actual callback and set command help
         }
@@ -148,7 +148,7 @@ namespace uMod.HumanFallFlat
                     // Remove the chat command
                     registeredCommands.Remove(command);
 
-                    // If this was originally a vanilla command then restore it, otherwise remove it
+                    // If this was originally a native command then restore it, otherwise remove it
                     if (cmd.OriginalCallback != null)
                     {
                         NetChat.serverCommands.commandsStr[cmd.Command] = cmd.OriginalCallback;
@@ -178,15 +178,12 @@ namespace uMod.HumanFallFlat
         /// <returns></returns>
         private bool CanOverrideCommand(string command)
         {
-            if (registeredCommands.TryGetValue(command, out RegisteredCommand cmd))
+            if (!registeredCommands.TryGetValue(command, out RegisteredCommand cmd) || !cmd.Source.IsCorePlugin)
             {
-                if (cmd.Source.IsCorePlugin)
-                {
-                    return false;
-                }
+                return !HumanFallFlatExtension.RestrictedCommands.Contains(command);
             }
 
-            return !HumanFallFlatExtension.RestrictedCommands.Contains(command);
+            return true;
         }
 
         #endregion Command Overriding

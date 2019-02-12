@@ -21,7 +21,7 @@ $root_dir = $PSScriptRoot
 $tools_dir = "$root_dir\tools"
 $project_dir = "$root_dir\src"
 $deps_dir = "$project_dir\Dependencies"
-$patch_dir = "$deps_dir\Patched"
+$patch_dir = "$deps_dir\Patched\$branch"
 $managed_dir = "$patch_dir\$managed"
 New-Item "$tools_dir", "$managed_dir" -ItemType Directory -Force | Out-Null
 
@@ -61,7 +61,7 @@ function Find-Dependencies {
         Write-Host "Getting references for $branch branch of $appid"
         try {
             # TODO: Exclude dependencies included in repository
-            $hint_path = "Dependencies\\Patched\\\$\(ManagedDir\)\\"
+            $hint_path = "Dependencies\\Patched\\\$\(SteamBranch\)\\\$\(ManagedDir\)\\"
             ($xml.selectNodes("//Reference") | Select-Object HintPath -ExpandProperty HintPath | Select-String -Pattern "uMod" -NotMatch) -Replace $hint_path | Out-File "$tools_dir\.references"
         } catch {
             Write-Host "Could not get references or none found in $project.csproj"
@@ -83,7 +83,7 @@ function Get-Downloader {
         # Get latest release info for DepotDownloader
         Write-Host "Determining latest release of DepotDownloader"
         try {
-            $json = (Invoke-WebRequest "https://api.github.com/repos/SteamRE/DepotDownloader/releases" | ConvertFrom-Json)[0]
+            $json = (Invoke-WebRequest "https://api.github.com/repos/SteamRE/DepotDownloader/releases" -UseBasicParsing | ConvertFrom-Json)[0]
             # TODO: Implement auth/token handling for GitHub API
             $version = $json.tag_name -Replace '\w+(\d+(?:\.\d+)+)', '$1'
             $release_zip = $json.assets[0].name
@@ -97,7 +97,7 @@ function Get-Downloader {
         # Download and extract DepotDownloader
         Write-Host "Downloading version $version of DepotDownloader"
         try {
-            Invoke-WebRequest $json.assets[0].browser_download_url -Out "$tools_dir\$release_zip"
+            Invoke-WebRequest $json.assets[0].browser_download_url -Out "$tools_dir\$release_zip" -UseBasicParsing
         } catch {
             Write-Host "Could not download DepotDownloader from GitHub"
             Write-Host $_.Exception.Message
@@ -153,7 +153,7 @@ function Get-Dependencies {
 
         # Attempt to run DepotDownloader to get game DLLs
         try {
-            $depot_process = Start-Process dotnet -ArgumentList "$tools_dir\DepotDownloader.dll $login -app $appid -branch $branch $depot -dir $patch_dir -filelist $tools_dir\.references" -NoNewWindow -Wait
+            Start-Process dotnet -ArgumentList "$tools_dir\DepotDownloader.dll $login -app $appid -branch $branch $depot -dir $patch_dir -filelist $tools_dir\.references" -WorkingDirectory $patch_dir -NoNewWindow -Wait
         } catch {
             Write-Host "Could not start or complete DepotDownloader process"
             Write-Host $_.Exception.Message
@@ -205,7 +205,7 @@ function Get-Deobfuscators {
             # Download and extract de4dot
             Write-Host "Downloading latest version of de4dot" # TODO: Get and show version
             try {
-                Invoke-WebRequest "https://ci.appveyor.com/api/projects/0xd4d/de4dot/artifacts/Release%2Fde4dot-net35.zip" -Out "$de4dot_dir\de4dot.zip"
+                Invoke-WebRequest "https://ci.appveyor.com/api/projects/0xd4d/de4dot/artifacts/Release%2Fde4dot-net35.zip" -Out "$de4dot_dir\de4dot.zip" -UseBasicParsing
             } catch {
                 Write-Host "Could not download de4dot from AppVeyor"
                 Write-Host $_.Exception.Message
@@ -263,7 +263,7 @@ function Get-Patcher {
         Write-Host "Downloading latest build of uMod Patcher"
         $patcher_url = "https://github.com/theumod/umod.patcher/releases/download/latest/uModPatcher.exe"
         try {
-            Invoke-WebRequest $patcher_url -Out "$patcher_exe"
+            Invoke-WebRequest $patcher_url -Out "$patcher_exe" -UseBasicParsing
         } catch {
             Write-Host "Could not download uModPatcher.exe from GitHub"
             Write-Host $_.Exception.Message

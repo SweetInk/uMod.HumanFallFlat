@@ -86,9 +86,14 @@ namespace uMod.HumanFallFlat
         public CultureInfo Language => CultureInfo.GetCultureInfo("en"); // TODO: Implement when possible
 
         /// <summary>
-        /// Returns if the player is admin
+        /// Returns if the player is a server admin
         /// </summary>
         public bool IsAdmin => netPlayer.host.isLocal; // TODO: Implement when possible
+
+        /// <summary>
+        /// Returns if the player is a server moderator
+        /// </summary>
+        public bool IsModerator => IsAdmin;
 
         /// <summary>
         /// Gets if the player is banned
@@ -165,9 +170,17 @@ namespace uMod.HumanFallFlat
         /// <param name="reason"></param>
         public void Kick(string reason)
         {
-            using (NetStream netStream = NetGame.BeginMessage(NetMsgId.Kick))
+            NetStream netStream = NetGame.BeginMessage(NetMsgId.Kick);
+            try
             {
                 NetGame.instance.SendReliable(netPlayer.host, netStream);
+            }
+            finally
+            {
+                if (netStream != null)
+                {
+                    netStream.Release();
+                }
             }
         }
 
@@ -280,12 +293,20 @@ namespace uMod.HumanFallFlat
             {
                 NetChat.OnReceive(NetGame.instance.local.hostId, prefix, message);
             }
-            using (NetStream netStream = NetGame.BeginMessage(NetMsgId.Chat))
+            NetStream netStream = NetGame.BeginMessage(NetMsgId.Chat);
+            try
             {
                 netStream.WriteNetId(NetGame.instance.local.hostId);
                 netStream.Write(prefix ?? string.Empty);
                 netStream.Write(message);
                 NetGame.instance.SendReliable(netPlayer.host, netStream);
+            }
+            finally
+            {
+                if (netStream != null)
+                {
+                    netStream.Release();
+                }
             }
         }
 
