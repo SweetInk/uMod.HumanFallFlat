@@ -31,7 +31,7 @@
                 "System.Byte[]"
               ]
             },
-            "MSILHash": "2En1hvjfBIBK2XHQi8DJeb06KWPmk+7sX7hHvg8F880=",
+            "MSILHash": "b1iaPLZrdeJ/oKw17/KJr4DtTN5U9+pLXPQabtY7P14=",
             "BaseHookName": null,
             "HookCategory": "Player"
           }
@@ -460,7 +460,7 @@
         {
           "Type": "Simple",
           "Hook": {
-            "InjectionIndex": 41,
+            "InjectionIndex": 65,
             "ReturnBehavior": 0,
             "ArgumentBehavior": 0,
             "ArgumentString": null,
@@ -478,7 +478,7 @@
                 "Steamworks.LobbyCreated_t"
               ]
             },
-            "MSILHash": "3d5Q8wuAAko7PWLiZg0n7jjQSxy5qbHYyiN42HeaQnU=",
+            "MSILHash": "DVhRnfJEYquwkgC86nCfoyvn/cn/WjI7GM6+h05Qxhw=",
             "BaseHookName": null,
             "HookCategory": "Server"
           }
@@ -671,7 +671,7 @@
               }
             ],
             "HookTypeName": "Modify",
-            "Name": "FixCheckDriveEndNRE [patch]",
+            "Name": "FixCheckDriveEndNRE [patch, broken]",
             "HookName": "FixCheckDriveEndNRE",
             "AssemblyName": "Assembly-CSharp.dll",
             "TypeName": "GroundManager",
@@ -733,7 +733,7 @@
               }
             ],
             "HookTypeName": "Modify",
-            "Name": "FixDistributeForceNRE [patch]",
+            "Name": "FixDistributeForceNRE [patch, broken]",
             "HookName": "FixDistributeForceNRE",
             "AssemblyName": "Assembly-CSharp.dll",
             "TypeName": "GrabManager",
@@ -830,7 +830,7 @@
               }
             ],
             "HookTypeName": "Modify",
-            "Name": "ServerChatOnlyOnReceive [patch]",
+            "Name": "ServerChatOnlyOnReceive [patch, broken]",
             "HookName": "ServerChatOnlyOnReceive",
             "AssemblyName": "Assembly-CSharp.dll",
             "TypeName": "Multiplayer.NetChat",
@@ -1075,7 +1075,7 @@
                 "Multiplayer.NetStream"
               ]
             },
-            "MSILHash": "sr27y/rCNpVB+ebt5B+35lNBuM8zPvfo5hFv5+03djk=",
+            "MSILHash": "lWF4/yqyyO5DeloWd4c0WnJ69s0f/jYzwnacr4AqkM8=",
             "BaseHookName": null,
             "HookCategory": "_Unfinished"
           }
@@ -1138,7 +1138,7 @@
                 "System.Action`1<System.Collections.Generic.List`1<Multiplayer.NetTransport/ILobbyEntry>>"
               ]
             },
-            "MSILHash": "0u7Na6xkbdKvaT99ABuwOrZz6nw4xr3M5KWmwb2mjSw=",
+            "MSILHash": "h4qJDwLol31zWA0vHXG17xIIErJ1e6EKgDoB2mMrwE8=",
             "BaseHookName": null,
             "HookCategory": "_Patches"
           }
@@ -1226,11 +1226,11 @@
               }
             ],
             "HookTypeName": "Modify",
-            "Name": "EnableWorkshopButton [patch]",
+            "Name": "EnableWorkshopButton [patch, disabled]",
             "HookName": "EnableWorkshopButton",
             "AssemblyName": "Assembly-CSharp.dll",
             "TypeName": "MainMenu",
-            "Flagged": false,
+            "Flagged": true,
             "Signature": {
               "Exposure": 2,
               "Name": "OnGotFocus",
@@ -1273,7 +1273,7 @@
                 "System.Action`1<System.Collections.Generic.List`1<Multiplayer.NetTransport/ILobbyEntry>>"
               ]
             },
-            "MSILHash": "0u7Na6xkbdKvaT99ABuwOrZz6nw4xr3M5KWmwb2mjSw=",
+            "MSILHash": "h4qJDwLol31zWA0vHXG17xIIErJ1e6EKgDoB2mMrwE8=",
             "BaseHookName": "ListLobbiesWorldwide [patch]",
             "HookCategory": "_Patches"
           }
@@ -1348,6 +1348,112 @@
             "MSILHash": "R5oBuvYMjH9F8SU1HPuf2VEECLIf7kQa5ZEhwg56y8c=",
             "BaseHookName": null,
             "HookCategory": "_Patches"
+          }
+        },
+        {
+          "Type": "Simple",
+          "Hook": {
+            "InjectionIndex": 13,
+            "ReturnBehavior": 1,
+            "ArgumentBehavior": 4,
+            "ArgumentString": "a0.player, a1",
+            "HookTypeName": "Simple",
+            "Name": "OnPlayerRespawn",
+            "HookName": "OnPlayerRespawn",
+            "AssemblyName": "Assembly-CSharp.dll",
+            "TypeName": "Game",
+            "Flagged": false,
+            "Signature": {
+              "Exposure": 2,
+              "Name": "Respawn",
+              "ReturnType": "System.Void",
+              "Parameters": [
+                "Human",
+                "UnityEngine.Vector3"
+              ]
+            },
+            "MSILHash": "CAlLWiGfWWkNgmKNNzDNYyvQEpDMt0K1UP4JFOGD1L8=",
+            "BaseHookName": null,
+            "HookCategory": "Player"
+          }
+        },
+        {
+          "Type": "Simple",
+          "Hook": {
+            "InjectionIndex": 0,
+            "ReturnBehavior": 0,
+            "ArgumentBehavior": 0,
+            "ArgumentString": null,
+            "HookTypeName": "Simple",
+            "Name": "OnLevelLoaded",
+            "HookName": "OnLevelLoaded",
+            "AssemblyName": "Assembly-CSharp.dll",
+            "TypeName": "Game",
+            "Flagged": true,
+            "Signature": {
+              "Exposure": 2,
+              "Name": "LevelLoaded",
+              "ReturnType": "System.Boolean",
+              "Parameters": [
+                "HumanAPI.Level"
+              ]
+            },
+            "MSILHash": "zmMmA5cz3mXqef1BJAYPMaRNfetibBwzgbmkIWeRKOI=",
+            "BaseHookName": null,
+            "HookCategory": "_Unfinished"
+          }
+        },
+        {
+          "Type": "Simple",
+          "Hook": {
+            "InjectionIndex": 0,
+            "ReturnBehavior": 0,
+            "ArgumentBehavior": 0,
+            "ArgumentString": null,
+            "HookTypeName": "Simple",
+            "Name": "OnPlayerFall",
+            "HookName": "OnPlayerFall",
+            "AssemblyName": "Assembly-CSharp.dll",
+            "TypeName": "Game",
+            "Flagged": true,
+            "Signature": {
+              "Exposure": 2,
+              "Name": "Fall",
+              "ReturnType": "System.Void",
+              "Parameters": [
+                "HumanAPI.HumanBase",
+                "System.Boolean"
+              ]
+            },
+            "MSILHash": "09ulPb5MIPc1Qerk2oGDu0A1sTBXSmwz1ZCmFySI6b8=",
+            "BaseHookName": null,
+            "HookCategory": "_Unfinished"
+          }
+        },
+        {
+          "Type": "Simple",
+          "Hook": {
+            "InjectionIndex": 0,
+            "ReturnBehavior": 0,
+            "ArgumentBehavior": 0,
+            "ArgumentString": null,
+            "HookTypeName": "Simple",
+            "Name": "OnPlayerDrown",
+            "HookName": "OnPlayerDrown",
+            "AssemblyName": "Assembly-CSharp.dll",
+            "TypeName": "Game",
+            "Flagged": true,
+            "Signature": {
+              "Exposure": 2,
+              "Name": "Drown",
+              "ReturnType": "System.Void",
+              "Parameters": [
+                "Human"
+              ]
+            },
+            "MSILHash": "KZgPyZtA6pkOU7c9E/O9PAXVgJyhiTj/H48EFqCQCZU=",
+            "BaseHookName": null,
+            "HookCategory": "_Unfinished"
           }
         }
       ],

@@ -96,13 +96,19 @@ namespace uMod.HumanFallFlat
         /// </summary>
         public static string[] Filter =
         {
+            "Audio source is playing an ambisonic audio clip",
             "DontDestroyOnLoad only work for root GameObjects or components on root GameObjects",
             "Error: Global Illumination requires a graphics device to render",
             "HDR Render Texture not supported, disabling HDR on reflection probe",
+            "Joint break force:",
             "OnLobbyEnter",
             "OnSessionConnectFail",
+            "Rope Enable",
             "Trim",
-            "invalid torque"
+            "UpdateJoinable",
+            "invalid torque",
+            "itemstate:",
+            " * "
         };
 
         /// <summary>

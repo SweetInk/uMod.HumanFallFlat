@@ -78,7 +78,7 @@ namespace uMod.HumanFallFlat
                 lang.RegisterMessages(language.Value, this, language.Key);
             }
 
-            // Setup default permission groups
+            // Set up default permission groups
             if (permission.IsLoaded)
             {
                 int rank = 0;
